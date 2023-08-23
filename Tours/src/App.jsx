@@ -1,8 +1,10 @@
+import Tours from "./components/Tours";
+
 function App() {
 	return (
-		<>
-			<h1 className="text-[12rem]">Hello world!</h1>
-		</>
+		<div className="bg-[#F8FAFC] w-[100%]">
+			<Tours />
+		</div>
 	);
 }
 
