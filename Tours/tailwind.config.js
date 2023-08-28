@@ -5,6 +5,9 @@ export const theme = {
 		backgroundColor: {
 			greenColor: "#10B981",
 		},
+		colors: {
+			customGreen: "#10B981",
+		},
 	},
 };
 export const plugins = [];

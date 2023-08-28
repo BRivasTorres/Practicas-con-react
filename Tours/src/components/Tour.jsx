@@ -1,4 +1,5 @@
 import data from "../mocks/data";
+import BtnInterested from "./BtnInterested";
 import ShowBtn from "./ShowBtn";
 import { useState } from "react";
 
@@ -29,12 +30,12 @@ const Tour = () => {
 						<img
 							src={item.img}
 							alt={item.title}
-							className="h-[200px] "
+							className="h-[300px] "
 						/>
 						<h2 className="font-semibold text-[1.5rem] px-[2rem] py-[1rem] ">
 							{item.title}
 						</h2>
-						<p className="p-[1rem]">
+						<p className="mx-[2rem]">
 							{expandedIndex === id
 								? item.description
 								: initialText()}{" "}
@@ -43,6 +44,7 @@ const Tour = () => {
 						<span className="bg-greenColor text-[#fff]  w-[fit-content] p-[.4rem] absolute right-[0] text-end">
 							{item.price}
 						</span>
+						<BtnInterested />
 					</div>
 				);
 			})}
