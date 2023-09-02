@@ -3,7 +3,16 @@ import BtnInterested from "./BtnInterested";
 import ShowBtn from "./ShowBtn";
 import { useState } from "react";
 
-const Tour = () => {
+const Tour = ({ updateTitle }) => {
+	const [tours, setTours] = useState(data);
+
+	const removeTour = (id) => {
+		const updateTours = [...tours];
+		updateTours.splice(id, 1);
+		setTours(updateTours);
+		updateTitle(tours.length);
+	};
+
 	const [expandedIndex, setExpandedIndex] = useState(-1);
 
 	const handleExpandText = (index) => {
@@ -12,7 +21,7 @@ const Tour = () => {
 
 	return (
 		<div className="flex flex-wrap gap-[2rem] mx-auto ">
-			{data.map((item, id) => {
+			{tours.map((item, id) => {
 				const initialText = () => {
 					let textLength = item.description.length;
 					let splitText = item.description.split("");
@@ -25,7 +34,7 @@ const Tour = () => {
 				return (
 					<div
 						key={id}
-						className="bg-white flex flex-col flex-wrap w-[30%] min-w-[350px] relative"
+						className="bg-white flex flex-col flex-wrap w-[30%] min-w-[350px] relative tour-card"
 					>
 						<img
 							src={item.img}
@@ -44,7 +53,7 @@ const Tour = () => {
 						<span className="bg-greenColor text-[#fff]  w-[fit-content] p-[.4rem] absolute right-[0] text-end">
 							{item.price}
 						</span>
-						<BtnInterested />
+						<BtnInterested removeTour={() => removeTour(id)} />
 					</div>
 				);
 			})}
