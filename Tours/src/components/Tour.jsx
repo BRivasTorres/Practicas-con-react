@@ -1,10 +1,11 @@
-import data from "../mocks/data";
 import BtnInterested from "./BtnInterested";
 import ShowBtn from "./ShowBtn";
 import { useState } from "react";
+import { useTours } from "./ToursContext";
 
 const Tour = ({ updateTitle }) => {
-	const [tours, setTours] = useState(data);
+	let { toursData } = useTours();
+	const [tours, setTours] = useState(toursData);
 
 	const removeTour = (id) => {
 		const updateTours = [...tours];
