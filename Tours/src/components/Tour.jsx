@@ -20,7 +20,7 @@ const Tour = ({ updateTitle }) => {
 	};
 
 	return (
-		<div className="flex flex-wrap gap-[2rem] mx-auto ">
+		<div className="flex flex-wrap gap-[2rem] mx-auto">
 			{tours.map((item, id) => {
 				const initialText = () => {
 					let textLength = item.description.length;
@@ -34,7 +34,7 @@ const Tour = ({ updateTitle }) => {
 				return (
 					<div
 						key={id}
-						className="bg-white flex flex-col flex-wrap w-[30%] min-w-[350px] relative tour-card"
+						className="bg-white flex flex-col flex-wrap w-[30%] min-w-[350px] relative hover:shadow-md"
 					>
 						<img
 							src={item.img}
