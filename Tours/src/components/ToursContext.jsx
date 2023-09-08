@@ -1,17 +1,14 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext } from "react";
 import data from "../mocks/data";
 
 const ToursContext = createContext(data);
 export const ToursProvider = ({ children }) => {
-	const [toursData, setToursData] = useState(data);
-
 	const refreshTours = () => {
-		setToursData(data);
-		console.log(toursData);
+		window.location.reload();
 	};
 
 	return (
-		<ToursContext.Provider value={{ toursData, refreshTours }}>
+		<ToursContext.Provider value={{ refreshTours }}>
 			{children}
 		</ToursContext.Provider>
 	);
