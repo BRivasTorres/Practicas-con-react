@@ -1,5 +1,11 @@
+import Reviews from "./components/Reviews";
+
 function App() {
-	return <></>;
+	return (
+		<div className="bg-[#F8FAFC] ">
+			<Reviews />
+		</div>
+	);
 }
 
 export default App;
