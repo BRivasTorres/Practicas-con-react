@@ -12,7 +12,7 @@ const ReviewCard = () => {
 				<h2 className="text-center text-[2rem] mt-[.5rem] ">
 					{data[0].name}
 				</h2>
-				<h3 className="uppercase text-center text-[1rem] mb-[1rem] ">
+				<h3 className="uppercase text-center text-[1rem] mb-[1rem] text-[#645CFF] font-semibold ">
 					{data[0].job}
 				</h3>
 				<p className="text-center">{data[0].text}</p>
