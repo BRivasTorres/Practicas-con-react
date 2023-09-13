@@ -1,4 +1,5 @@
 import data from "../mocks/data";
+import BtnSurprise from "./BtnSurprise";
 import PrevNextBtns from "./PrevNextBtns";
 import { useState } from "react";
 
@@ -23,6 +24,12 @@ const ReviewCard = () => {
 		}
 	};
 
+	const handleSurprise = () => {
+		let max = data.length;
+		let randomPerson = Math.floor(Math.random() * max);
+		setCurrPerson(randomPerson);
+	};
+
 	return (
 		<div className="p-[2rem]">
 			<div key={data[currPerson].id} className=" mx-auto">
@@ -40,6 +47,7 @@ const ReviewCard = () => {
 				<p className="text-center">{data[currPerson].text}</p>
 			</div>
 			<PrevNextBtns handlePrev={handlePrev} handleNext={handleNext} />
+			<BtnSurprise handleSurprise={handleSurprise} />
 		</div>
 	);
 };
