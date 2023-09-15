@@ -7,24 +7,25 @@ const Question = () => {
 		data.map((ele) => ({
 			...ele,
 			isExpanded: false,
+			icon: true,
 		}))
 	);
-	const [icon, setIcon] = useState(false);
+	// const [icon, setIcon] = useState(false);
 
 	const handleExpand = (id) => {
 		setExpand((prevExpand) => {
 			return prevExpand.map((ele) => {
 				if (ele.id === id) {
-					return { ...ele, isExpanded: !ele.isExpanded };
+					return {
+						...ele,
+						isExpanded: !ele.isExpanded,
+						icon: !ele.icon,
+					};
 				} else {
 					return ele;
 				}
 			});
 		});
-	};
-
-	const handleIcon = (i) => {
-		
 	};
 
 	return (
@@ -55,7 +56,7 @@ const Question = () => {
 							</div>
 							<BtmExpandReduce
 								handleExpand={() => handleExpand(element.id)}
-								handleIcon={}
+								icon={element.icon}
 							/>
 						</div>
 					</div>
