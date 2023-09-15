@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .centerDiv {
+        @apply absolute top-[-50px] left-[-50px] translate-x-[-50px] translate-y-[50px]
+    }
+}
