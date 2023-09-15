@@ -2,7 +2,7 @@ import Accordion from "./components/Accordion";
 
 function App() {
 	return (
-		<div className="bg-[#CFFAFE] flex justify-center items-center h-[100vh] ">
+		<div className="bg-[#CFFAFE] flex justify-center p-[2rem]">
 			<Accordion />
 		</div>
 	);
