@@ -1,6 +1,9 @@
-import data from "../mocks/data";
+import { useContext } from "react";
+import { dataContext } from "./Categories";
 
 const Foods = () => {
+	const data = useContext(dataContext);
+
 	return (
 		<div className="mt-[3rem] mb-[3rem] flex gap-[3rem] flex-wrap justify-center">
 			{data.map((item) => {
