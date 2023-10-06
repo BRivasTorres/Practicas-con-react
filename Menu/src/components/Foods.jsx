@@ -5,7 +5,10 @@ const Foods = () => {
 		<div className="mt-[3rem] mb-[3rem] flex gap-[3rem] flex-wrap justify-center">
 			{data.map((item) => {
 				return (
-					<div key={item.id} className="w-[30%] bg-white rounded-md">
+					<div
+						key={item.id}
+						className="w-[30%] bg-white rounded-md min-w-[300px] "
+					>
 						<img
 							src={item.img}
 							alt={item.title}

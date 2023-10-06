@@ -6,7 +6,7 @@ const Categories = () => {
 			<h2 className="text-[3rem] text-center ">Our Menu</h2>
 			<div className="w-[160px] h-[5px] rounded mx-auto bg-orange-menu"></div>
 
-			<div className="mt-[1.5rem] flex gap-[1rem] justify-center ">
+			<div className="mt-[1.5rem] flex gap-[1rem] justify-center flex-wrap ">
 				<Buttons text="All" />
 				<Buttons text="Breakfast" />
 				<Buttons text="Lunch" />
