@@ -18,7 +18,9 @@ const Foods = () => {
 							<h3 className=" capitalize font-bold text-[1.5rem] ">
 								{item.title}
 							</h3>
-							<span>{item.price}</span>
+							<span className="bg-[#F59E0B] p-[.3rem] rounded text-white ">
+								{`$${item.price} `}
+							</span>
 						</div>
 						<p className="px-[1.5rem] pb-[1rem] ">{item.desc}</p>
 					</div>
