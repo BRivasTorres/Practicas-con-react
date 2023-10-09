@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { dataContext } from "./Categories";
+import { dataContext } from "../components/Menu";
 
 const Foods = () => {
 	const data = useContext(dataContext);
