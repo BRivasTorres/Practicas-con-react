@@ -1,5 +1,11 @@
+import Tabs from "./components/Tabs";
+
 function App() {
-	return <></>;
+	return (
+		<>
+			<Tabs />
+		</>
+	);
 }
 
 export default App;
