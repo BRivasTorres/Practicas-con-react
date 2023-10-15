@@ -1,8 +1,10 @@
 import DataCard from "./DataCard";
+import Names from "./Names";
 
 const Tabs = () => {
 	return (
-		<div>
+		<div className="mx-auto flex gap-[2rem] p-[3rem] ">
+			<Names />
 			<DataCard />
 		</div>
 	);
