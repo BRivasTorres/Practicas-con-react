@@ -1,18 +1,21 @@
-import data from "../mocks/data";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAnglesRight } from "@fortawesome/free-solid-svg-icons";
+import { useContext } from "react";
+import { DataContext } from "./Tabs";
 
 const DataCard = () => {
+	const data = useContext(DataContext);
+
 	return (
 		<section className="flex flex-col gap-4">
-			<div className="flex flex-col mb-6">
-				<h2 className="text-[2.3rem]">{data[0].role}</h2>
-				<span className="uppercase bg-[#CBD5E1] p-[.5rem] w-fit rounded ">
-					{data[0].name}{" "}
+			<div className="flex flex-col mb-4">
+				<h2 className="text-[2.3rem]">{data.role}</h2>
+				<span className="uppercase bg-[#CBD5E1] p-[.5rem] w-fit rounded my-[.5rem] ">
+					{data.name}{" "}
 				</span>
-				<small className="capitalize text-[1rem]">{data[0].date}</small>
+				<small className="capitalize text-[1rem]">{data.date}</small>
 			</div>
-			{data[0].description.map((desc, id) => {
+			{data.description.map((desc, id) => {
 				return (
 					<div key={id} className="flex items-center gap-7">
 						<i>
