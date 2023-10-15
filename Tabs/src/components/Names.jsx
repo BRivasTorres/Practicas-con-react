@@ -6,7 +6,7 @@ const Names = ({ handleCurr }) => {
 			{data.map((item, id) => {
 				return (
 					<button
-						className="uppercase text-[1.3rem] hover:text-[#14BEC4] active:[#14BEC4] hover:shadow-btn active:shadow-btn"
+						className={`uppercase text-[1.3rem] hover:text-[#14BEC4] active:[#14BEC4] hover:shadow-btn active:shadow-btn`}
 						key={id}
 						onClick={() => handleCurr(id)}
 					>

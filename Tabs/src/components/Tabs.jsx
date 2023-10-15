@@ -15,7 +15,7 @@ const Tabs = () => {
 	return (
 		<DataContext.Provider value={currData}>
 			<div className="mx-auto flex gap-[2rem] p-[3rem] ">
-				<Names handleCurr={handleCurr} />
+				<Names handleCurr={handleCurr} isActive={currData.isActive} />
 				<DataCard />
 			</div>
 		</DataContext.Provider>
