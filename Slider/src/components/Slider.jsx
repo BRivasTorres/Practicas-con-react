@@ -2,7 +2,7 @@ import Card from "./Card";
 
 const Slider = () => {
 	return (
-		<div>
+		<div className="w-[60%] border border-red-700 ">
 			<Card />{" "}
 		</div>
 	);
