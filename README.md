@@ -30,4 +30,5 @@ Proyecto 3 :  Views </h3>
 <a href="https://tabs-react-project-6.netlify.app/"><img src="https://i.ibb.co/fr3zSkd/proyect-6.png" alt="proyect-6" width="500px"></a>
 <h3>Proyecto 7 : Slider</h3>
 <a href="https://slider-react-proyect-7.netlify.app/"><img src="https://i.ibb.co/WHNcTxG/7.png" alt="7" width="500px"></a>
-
+<h3>Proyecto 8 : Lorem Ipsum</h3>
+<a href="https://loremipsum-react-proyect-8.netlify.app/"><img src="https://i.ibb.co/89rFcNf/8.png" alt="8" width="500px"></a>
