@@ -7,19 +7,23 @@ const Slider = () => {
 
 	const handleClick = (btn) => {
 		let currIndex = data.indexOf(currItem);
-
-		if (currIndex < 0) {
-			setCurrItem(data[data.length - 1]);
-		} else if (currIndex > data.length - 1) {
-			setCurrItem(data[0]);
-		}
+		let newItem;
 
 		if (btn === "prev") {
-			setCurrItem(data[currIndex - 1]);
+			currIndex === 0
+				? (newItem = data[data.length - 1])
+				: (newItem = data[currIndex - 1]);
 		} else if (btn === "next") {
-			setCurrItem(data[currIndex + 1]);
+			currIndex >= data.length - 1
+				? (newItem = data[0])
+				: (newItem = data[currIndex + 1]);
 		}
+		setCurrItem(newItem);
 	};
+
+	setInterval(() => {
+		handleClick("next");
+	}, 4000);
 
 	return (
 		<div className="w-[60%]">
