@@ -8,7 +8,7 @@ Repositorio para reforzar, aprender y practicar conceptos aprendidos en react. P
 
 # Mis proyectos
 <h3> Proyecto 1 : Birthday Buddy </h3>
-<a href="https://birthday-buddy-btr.netlify.app/"><img src="https://i.ibb.co/QndkS2q/Captura-de-pantalla-2023-08-19-195505.png" alt="Imagen width="500px" ></a>
+<a href="https://birthday-buddy-btr.netlify.app/"><img src="https://i.ibb.co/QndkS2q/Captura-de-pantalla-2023-08-19-195505.png" alt="Imagen" width="500px" ></a>
 <br/>
 <br/>
 <h3>Proyecto 2 : Tours </h3>
@@ -28,5 +28,6 @@ Proyecto 3 :  Views </h3>
 <a href="https://menu-proyect-btr.netlify.app/"><img src="https://i.ibb.co/58CB0Xm/img1.png" alt="img1" border="0" width="500px"></a>
 <h3>Proyecto 6 : Tabs</h3>
 <a href="https://tabs-react-project-6.netlify.app/"><img src="https://i.ibb.co/fr3zSkd/proyect-6.png" alt="proyect-6" width="500px"></a>
-
+<h3>Proyecto 7 : Slider</h3>
+<a href="https://slider-react-proyect-7.netlify.app/"><img src="https://i.ibb.co/WHNcTxG/7.png" alt="7" width="500px"></a>
 
