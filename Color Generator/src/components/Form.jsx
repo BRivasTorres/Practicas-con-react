@@ -12,11 +12,16 @@ const Form = () => {
 			setColorBtn(e.target.value);
 		} else if (e.target.type === "text") {
 			setText(e.target.value);
+			setColorBtn(e.target.value);
 		}
 	};
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
+		let hexColorPattern = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{8})$/;
+		if (!hexColorPattern.test(text)) {
+			alert("Color invalido");
+		}
 	};
 
 	return (
