@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.form {
+    display: grid;
+    grid-template-columns: 1fr 100px;
+}
+
+.task {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    column-gap: 1rem;
+    align-items: center;
+    min-width: 300px;
+}
