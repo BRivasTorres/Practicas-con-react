@@ -16,7 +16,6 @@ export const useLocalStorage = (key) => {
 	};
 
 	const deleteItem = (id) => {
-		console.log(getItem());
 		try {
 			const arr = getItem();
 			if (arr) {
