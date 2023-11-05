@@ -1,8 +1,11 @@
 import Task from "./Task";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { v4 as id } from "uuid";
+import { useLocalStorage } from "../hooks/useLoccalStorage";
 
 const GroceryBud = () => {
+	const { setItem, deleteItem, getItem } = useLocalStorage("value");
+
 	const [input, setInput] = useState("");
 	const [tasks, setTasks] = useState([]);
 
@@ -16,7 +19,17 @@ const GroceryBud = () => {
 			setTasks([...tasks, { id: id(), value: input }]);
 			setInput("");
 		}
+		setItem(tasks);
 	};
+
+	const handleDelete = (id) => {
+		setTasks(getItem);
+		deleteItem(id);
+	};
+
+	useEffect(() => {
+		setItem(tasks);
+	}, [tasks]);
 
 	return (
 		<div className="w-[40%] mx-auto my-[4rem] bg-[#F8FAFC] max-w-[800px] shadow-sm flex flex-col items-center p-[3rem] rounded-md hover:shadow-lg transition-all duration-500 ease-linear">
@@ -35,7 +48,7 @@ const GroceryBud = () => {
 					Add Item
 				</button>
 			</form>
-			<Task tasks={tasks} />
+			<Task tasks={tasks} handleDelete={handleDelete} />
 		</div>
 	);
 };
