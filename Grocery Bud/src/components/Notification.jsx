@@ -1,8 +1,8 @@
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const Notification = ({ type, message }) => {
-	const notify = () =>
+const Notification = () => {
+	const notify = (type, message) =>
 		toast[type](`${message}`, {
 			position: "top-center",
 			autoClose: 5000,
