@@ -1,4 +1,4 @@
-const Form = ({ handleSubmit, handleInput, input }) => {
+const Form = ({ handleSubmit, handleInput, input, handleNotify }) => {
 	return (
 		<form
 			className="mb-[2rem] min-w-[300px] w-[100%] form"

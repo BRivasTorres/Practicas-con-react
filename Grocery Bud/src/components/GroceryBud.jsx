@@ -1,8 +1,10 @@
 import Form from "./Form";
 import Task from "./Task";
+import { ToastContainer } from "react-toastify";
 import { useEffect, useState } from "react";
 import { v4 as id } from "uuid";
 import { useLocalStorage } from "../hooks/useLoccalStorage";
+import { notify } from "../helpers/notify";
 
 const GroceryBud = () => {
 	const { setItem, deleteItem, getItem } = useLocalStorage("value");
@@ -21,11 +23,13 @@ const GroceryBud = () => {
 			setInput("");
 		}
 		setItem(tasks);
+		input.trim() !== "" ? notify("success", "item added") : undefined;
 	};
 
 	const handleDelete = (id) => {
 		setTasks(getItem);
 		deleteItem(id);
+		console.log("item deleted");
 	};
 
 	useEffect(() => {
@@ -41,6 +45,7 @@ const GroceryBud = () => {
 				input={input}
 			/>
 			<Task tasks={tasks} handleDelete={handleDelete} />
+			<ToastContainer />
 		</div>
 	);
 };
