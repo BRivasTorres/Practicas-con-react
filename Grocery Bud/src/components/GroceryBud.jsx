@@ -21,14 +21,17 @@ const GroceryBud = () => {
 		if (input.trim() !== "") {
 			setTasks([...tasks, { id: id(), value: input }]);
 			setInput("");
+			notify("success", "Item added successfylly");
+		} else {
+			notify("warning", "Please provide something to add");
 		}
-		notify("success", "hollo fucking world");
 		setItem(tasks);
 	};
 
 	const handleDelete = (id) => {
-		setTasks(getItem);
 		deleteItem(id);
+		setTasks(getItem);
+		notify("success", "Item deleted");
 	};
 
 	useEffect(() => {
@@ -37,7 +40,7 @@ const GroceryBud = () => {
 
 	return (
 		<div className="w-[40%] mx-auto my-[4rem] bg-[#F8FAFC] max-w-[800px] shadow-sm flex flex-col items-center p-[3rem] rounded-md hover:shadow-lg transition-all duration-500 ease-linear">
-			<h2 className="text-[2rem] mb-[2rem] ">Grocery Bud</h2>
+			<h2 className="text-[2rem] mb-[2rem]">Grocery Bud</h2>
 			<Form
 				handleInput={handleInput}
 				handleSubmit={handleSubmit}
