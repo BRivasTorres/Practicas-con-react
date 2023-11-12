@@ -1,8 +1,8 @@
-const Task = ({ tasks, handleDelete }) => {
+const Task = ({ items, handleDelete }) => {
 	return (
 		<div className="w-[100%] ">
-			{tasks &&
-				tasks.map((item) => {
+			{items &&
+				items.map((item) => {
 					return (
 						<div key={item.id} className="task w-[100%] mb-[1rem] ">
 							<input type="checkbox" name="check" id="check" />

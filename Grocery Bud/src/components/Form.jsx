@@ -1,4 +1,39 @@
+<<<<<<< HEAD
 const Form = ({ handleSubmit, handleInput, input, handleNotify }) => {
+=======
+import { useEffect, useState } from "react";
+import { v4 as id } from "uuid";
+import { useLocalStorage } from "../hooks/useLoccalStorage";
+
+const Form = () => {
+	const { setItem, deleteItem, getItem } = useLocalStorage("value");
+
+	const [input, setInput] = useState("");
+	const [tasks, setTasks] = useState(getItem);
+
+	const handleInput = (e) => {
+		setInput(e.target.value);
+	};
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		if (input.trim() !== "") {
+			setTasks([...tasks, { id: id(), value: input }]);
+			setInput("");
+		}
+		setItem(tasks);
+	};
+
+	const handleDelete = (id) => {
+		setTasks(getItem);
+		deleteItem(id);
+	};
+
+	useEffect(() => {
+		setItem(tasks);
+	}, [tasks]);
+
+>>>>>>> parent of 1d3d1b6 (refactor : refactorizacion de comoponentes form, notification y tasks)
 	return (
 		<form
 			className="mb-[2rem] min-w-[300px] w-[100%] form"
