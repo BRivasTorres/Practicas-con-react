@@ -9,7 +9,8 @@ export const useLocalStorage = (key) => {
 
 	const getItem = () => {
 		try {
-			return JSON.parse(window.localStorage.getItem(key));
+			let data = JSON.parse(window.localStorage.getItem(key));
+			return data || [];
 		} catch (error) {
 			console.log(error);
 		}

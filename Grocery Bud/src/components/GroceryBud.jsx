@@ -6,8 +6,10 @@ import { v4 as id } from "uuid";
 import { notify } from "../helpers/notify";
 import { ToastContainer } from "react-toastify";
 
+//TODO: resolver conflictos entre el estado inicial de tasks y su renderizado
+
 const GroceryBud = () => {
-	const { setItem, deleteItem, getItem } = useLocalStorage("value");
+	const { setItem, deleteItem, getItem } = useLocalStorage("val");
 
 	const [input, setInput] = useState("");
 	const [tasks, setTasks] = useState(getItem);
@@ -21,11 +23,11 @@ const GroceryBud = () => {
 		if (input.trim() !== "") {
 			setTasks([...tasks, { id: id(), value: input }]);
 			setInput("");
+			setItem(tasks);
 			notify("success", "Item added successfylly");
 		} else {
-			notify("warning", "Please provide something to add");
+			notify("warning", "Enter something to add");
 		}
-		setItem(tasks);
 	};
 
 	const handleDelete = (id) => {
