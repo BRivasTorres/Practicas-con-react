@@ -5,6 +5,7 @@ import Projects from "./pages/Projects";
 import Team from "./pages/Team";
 import Documents from "./pages/Team";
 import Calendar from "./pages/Team";
+import Errro404 from "./pages/Errro404";
 
 function App() {
 	return (
@@ -17,6 +18,7 @@ function App() {
 					<Route path="/projects" element={Projects} />
 					<Route path="/documents" element={Documents} />
 					<Route path="/calendar" element={Calendar} />
+					<Route path="*" element={Errro404} />
 				</Routes>
 			</BrowserRouter>
 		</div>

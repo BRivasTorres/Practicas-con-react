@@ -1,8 +1,13 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import {
+	faBars,
+	faHouse,
+	faPeopleGroup,
+	faFolderOpen,
+	faCalendarDays,
+	faFileLines,
+} from "@fortawesome/free-solid-svg-icons";
 import { NavLink } from "react-router-dom";
-
-//TODO hacer el menu tabs hidden, y el menu navegable visible cuando este sea precionado.
 
 const Menu = () => {
 	return (
@@ -13,12 +18,32 @@ const Menu = () => {
 					className="text-[1.5rem] text-[#49A6E9] menu-animation hover:cursor-pointer"
 				/>
 			</div>
-			<nav>
-				<NavLink to={"/home"}>Home</NavLink>
-				<NavLink to={"/documents"}>Documents</NavLink>
-				<NavLink to={"/team"}>Team</NavLink>
-				<NavLink to={"/projects"}>Projects</NavLink>
-				<NavLink to={"/calendar"}>Calendar</NavLink>
+			<nav className="flex flex-col">
+				<NavLink to={"/home"}>
+					<FontAwesomeIcon icon={faHouse} /> Home
+				</NavLink>
+
+				<NavLink to={"/team"}>
+					<FontAwesomeIcon icon={faPeopleGroup} />
+					Team
+				</NavLink>
+
+				<NavLink to={"/projects"}>
+					<FontAwesomeIcon icon={faFolderOpen} />
+					Projects
+				</NavLink>
+
+				<NavLink to={"/calendar"}>
+					<FontAwesomeIcon icon={faCalendarDays} />
+					Calendar
+				</NavLink>
+
+				<NavLink to={"/documents"}>
+					<FontAwesomeIcon icon={faFileLines} />
+					Documents
+				</NavLink>
+
+				{/* <NavLink to={"/inexistente"}>Error 404</NavLink> */}
 			</nav>
 		</div>
 	);
