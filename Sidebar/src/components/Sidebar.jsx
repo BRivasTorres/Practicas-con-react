@@ -3,7 +3,7 @@ import Modal from "./Modal";
 
 const Sidebar = () => {
 	return (
-		<div className="p-[2rem] ">
+		<div>
 			<Menu />
 			<Modal />
 		</div>

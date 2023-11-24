@@ -3,13 +3,13 @@ import Sidebar from "./components/Sidebar";
 import Home from "./pages/Home";
 import Projects from "./pages/Projects";
 import Team from "./pages/Team";
-import Documents from "./pages/Team";
-import Calendar from "./pages/Team";
+import Documents from "./pages/Documents";
+import Calendar from "./pages/Calendar";
 import Errro404 from "./pages/Errro404";
 
 function App() {
 	return (
-		<div className="bg-[#F1F5F9] h-[100dvh] ">
+		<div className="bg-[#F1F5F9] h-[100dvh]">
 			<BrowserRouter>
 				<Sidebar />
 				<Routes>
