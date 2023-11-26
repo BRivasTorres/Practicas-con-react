@@ -28,7 +28,7 @@ const Menu = () => {
 	};
 
 	return (
-		<div>
+		<div className="">
 			<button className="p-[2rem]" onClick={handleShowMenu}>
 				<FontAwesomeIcon
 					icon={faBars}
@@ -36,7 +36,7 @@ const Menu = () => {
 				/>
 			</button>
 			<nav
-				className={`grid grid-rows-[auto_1fr_auto] w-[20%] bg-white text-[#64748B] text-[1.5rem] h-[100svh] fixed top-[0] left-[0] 
+				className={`grid grid-rows-[auto_1fr_auto] w-[20%] bg-white text-[#64748B] text-[1.5rem] h-[100svh] fixed top-[0] left-[0] transition-all duration-500 ease-linear
 				${!showMenu ? "translate-x-[-100%]" : null}`}
 			>
 				<div className="p-[1rem] flex items-center justify-between">

@@ -1,11 +1,11 @@
 import Menu from "./Menu";
-import Modal from "./Modal";
+import Portal from "./Portal";
 
 const Sidebar = () => {
 	return (
 		<div>
 			<Menu />
-			<Modal />
+			<Portal />
 		</div>
 	);
 };
