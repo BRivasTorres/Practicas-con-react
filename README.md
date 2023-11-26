@@ -36,3 +36,5 @@ Proyecto 3 :  Views </h3>
 <a href="https://grocery-bud-project10.netlify.app/"><img src="https://i.ibb.co/XVYzydP/10.png" alt="10" width="500px"></a>
 <h3>Proyecto 11 : Navbar</h3>
 <a href="https://navbar-proyect-11.netlify.app/"><img src="https://i.ibb.co/8z9417V/11.png" alt="11" width="500px"></a>
+<h3>Proyecto 12: Sidebar y Modal</h3>
+<a href="https://sidebar-and-modal-project-12.netlify.app/"><img src="https://i.ibb.co/wdthC6h/12.png" alt="12" width="500px"></a>
