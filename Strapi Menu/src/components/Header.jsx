@@ -5,38 +5,48 @@ import Solutions from "../pages/Solutions"
 import Resourses from "../pages/Resourses"
 
 const Header = () => {
-    const [isShowProducts, setIsShowProducts] = useState(false)
-    const [isShowSolutions, setIsShowSolutions] = useState(false)
-    const [isShowResources, setIsShowResources] = useState(false)
-    
+	const [isShow, setIsShow] = useState({
+		product : false,
+		solutions: false,
+		resources : false
+	})
+
+	const handleMouseEnter =  (key) => {
+		setIsShow({...isShow, [key] : true})
+	}
+	
+	const handleMouseLeave = (key) => {
+		setIsShow({...isShow, [key] : false})
+	}
+	
   return (
 		<header className="w-[80%] mx-auto py-[2.5rem] text-white flex justify-around">
 			<h2 className="text-[2.4rem] font-bold ">strapi</h2>
 			<nav className="text-[2rem] flex gap-[1.3rem] items-center">
 				<NavLink
 					to={"#"}
-					onMouseEnter={() => setIsShowProducts(true)}
-					onMouseLeave={() => setIsShowProducts(false)}
+					onMouseEnter={() => handleMouseEnter("product")}
+					onMouseLeave={() => handleMouseLeave("product")}
 				>
 					Product
 				</NavLink>
-				{isShowProducts && <Productos />}
+				{isShow.product && <Productos />}
 				<NavLink
 					to={"#"}
-					onMouseEnter={() => setIsShowSolutions(true)}
-					onMouseLeave={() => setIsShowSolutions(false)}
+					onMouseEnter={() => handleMouseEnter("solutions")}
+					onMouseLeave={() => handleMouseLeave("solutions")}
 				>
 					Solutions
 				</NavLink>
-				{isShowSolutions && <Solutions />}
+				{isShow.solutions && <Solutions />}
 				<NavLink
 					to={"#"}
-					onMouseEnter={() => setIsShowResources(true)}
-					onMouseLeave={() => setIsShowResources(false)}
+					onMouseEnter={() => handleMouseEnter("resources")}
+					onMouseLeave={() => handleMouseLeave("resources")}
 				>
 					Resources
 				</NavLink>
-				{isShowResources && <Resourses />}
+				{isShow.resources && <Resourses />}
 			</nav>
 		</header>
   );

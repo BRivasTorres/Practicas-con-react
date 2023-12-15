@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 .pages-styles {
-    background-color: white;
     color: black;
-    padding: 1rem;
     position: absolute;
-    top: 15%;
+    background-color: white;
+    padding: 1rem;
+    top: calc(100vh - 85%);
     left: 20%;
     width: 60%;
     margin: auto 0;
