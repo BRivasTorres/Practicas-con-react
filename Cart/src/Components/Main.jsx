@@ -1,10 +1,24 @@
 import data from "../mocks/data"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronUp, faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
 
 const Main = () => {
+	
+	const [state, setState] = useState([
+		{ name: "samsung", id: 1, amount: 1 },
+		{ name: "pixel", id: 2, amount: 1 },
+		{ name: "xiaomi", id: 3, amount: 1 },
+	]);
+	
+	const handleState= (id) => {
+		setState(prev => {
+			prev.map()
+		})
+	}
+	
     return (
-		<main className=" w-[55%] mx-auto ">
+		<main className=" w-[55%] mx-auto">
 			<h2 className="text-[3rem] text-center mt-[2.5rem] ">YOUR BAG</h2>
 			{data.map((item) => {
 				return (
