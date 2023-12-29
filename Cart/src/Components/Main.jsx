@@ -4,18 +4,43 @@ import { faChevronUp, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 
 const Main = () => {
-	
-	const [state, setState] = useState([
-		{ name: "samsung", id: 1, amount: 1 },
-		{ name: "pixel", id: 2, amount: 1 },
-		{ name: "xiaomi", id: 3, amount: 1 },
+	const [amount, setAmount] = useState([
+		{ name: "samsung", id: 1, amount: 1, price: 599.99 },
+		{ name: "pixel", id: 2, amount: 1, price: 499.99 },
+		{ name: "xiaomi", id: 3, amount: 1, price: 699.99 },
 	]);
 	
-	const handleState= (id) => {
-		setState(prev => {
-			prev.map()
-		})
-	}
+	const [total, setTotal] = useState(
+		amount.reduce((acc, item) => acc + item.amount * item.price, 0)
+	);
+	
+	const handlePlus = (id) => {
+		setAmount((prev) =>
+			prev.map((item) => {
+				if (item.id === id) return { ...item, amount: item.amount + 1 };
+				return item;
+			})
+		);
+		setTotal(
+			amount
+				.reduce((acc, item) => acc + item.amount * item.price, 0)
+				.toFixed(2)
+		);
+	};
+
+	const handleMinus = (id) => {
+		setAmount((prev) =>
+			prev.map((item) => {
+				if (item.id === id) return { ...item, amount: item.amount - 1 };
+				return item;
+			})
+		);
+		setTotal(
+			amount
+				.reduce((acc, item) => acc + item.amount * item.price, 0)
+				.toFixed(2)
+		);
+	};
 	
     return (
 		<main className=" w-[55%] mx-auto">
@@ -45,14 +70,14 @@ const Main = () => {
 						</div>
 
 						<div className="flex flex-col items-center justify-center">
-							<button>
+							<button onClick={() => handlePlus(item.id)}>
 								<FontAwesomeIcon
 									icon={faChevronUp}
 									className="text-[#645CFF] hover:text-[#3c3799] text-[1.5rem]"
 								/>
 							</button>
 							<span>{item.amount}</span>
-							<button>
+							<button onClick={() => handleMinus(item.id)}>
 								<FontAwesomeIcon
 									icon={faChevronDown}
 									className="text-[#645CFF] hover:text-[#3c3799] text-[1.5rem]"
@@ -68,7 +93,7 @@ const Main = () => {
 				<div className="flex justify-between text-[1.5rem] mt-[1.5rem] ">
 					<span>Total</span>
 					<span className="bg-[#645CFF] px-2 text-white rounded-[5px] ">
-						$4324324
+						${total}
 					</span>
 				</div>
         
