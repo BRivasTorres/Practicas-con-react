@@ -1,48 +1,11 @@
-import data from "../mocks/data"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronUp, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
-
+import { useContext } from "react";
+import DataContext from "../hooks/DataContext";
 const Main = () => {
-	const [amount, setAmount] = useState(data);
 	const [isEmpty, setIsEmpty] = useState(false)
-	
-	const [total, setTotal] = useState(
-		amount.reduce((acc, item) => acc + item.amount * item.price, 0)
-	);
-	
-	const handlePlus = (id) => {
-		setAmount((prev) =>
-			prev.map((item) => {
-				if (item.id === id) return { ...item, amount: item.amount + 1 };
-				return item;
-			})
-		);
-		setTotal(
-			amount
-				.reduce((acc, item) => acc + item.amount * item.price, 0)
-				.toFixed(2)
-		);
-	};
-
-	const handleMinus = (id) => {
-		setAmount((prev) =>
-			prev
-				.map((item) => {
-					if (item.id === id && item.amount >= 1) {
-						return { ...item, amount: item.amount - 1 };
-					}
-					return item;
-				})
-				.filter((el) => el.amount >= 1)
-		);
-		setTotal(
-			amount
-				.reduce((acc, item) => acc + item.amount * item.price, 0)
-				.toFixed(2)
-		);
-	};
-	
+	const {amount, total, handleMinus, handlePlus} = useContext(DataContext)
 	const handleIsEmpty = () => {
 		setIsEmpty(!isEmpty)
 	}
