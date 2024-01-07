@@ -40,3 +40,5 @@ Proyecto 3 :  Views </h3>
 <a href="https://sidebar-and-modal-project-12.netlify.app/"><img src="https://i.ibb.co/wdthC6h/12.png" alt="12" width="500px"></a>
 <h3>Proyecto 13 : Strapi Menu</h3>
 <a href="https://strapi-menu-project13.netlify.app/"><img src="https://i.ibb.co/MP4N9Rc/13.png" alt="13" width="500px"></a>
+<h3>Proyect 14: Cart</h3>
+<a href="https://project-cart-14.netlify.app/"><img src="https://i.ibb.co/4dqq8L4/14.png" alt="14" width="500px"></a>
