@@ -5,9 +5,10 @@ import { useContext } from "react";
 import DataContext from "../hooks/DataContext";
 const Main = () => {
 	const [isEmpty, setIsEmpty] = useState(false)
-	const {amount, total, handleMinus, handlePlus} = useContext(DataContext)
+	const {amount, total, handleMinus, handlePlus, setProducts} = useContext(DataContext)
 	const handleIsEmpty = () => {
 		setIsEmpty(!isEmpty)
+		setProducts(0)
 	}
 	
     return (

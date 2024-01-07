@@ -12,25 +12,19 @@ const DataProvider = ({children}) => {
 	const [products, setProducts] = useState(amount.length)
 
 	const handlePlus = (id) => {
-		setTotal((prev) =>
-				prev.reduce((acc, item) => acc + item.amount * item.price, 0)
-				.toFixed(2)
-		);
+		const newTotal = amount.reduce((acc, item) => acc + item.amount * item.price, 0)
 		setAmount((prev) =>
 			prev.map((item) => {
 				if (item.id === id) return { ...item, amount: item.amount + 1 };
 				return item;
 			})
 		);
+		setTotal(newTotal.toFixed(2));
 		setProducts(prev => prev + 1)
 	};
 
 	const handleMinus = (id) => {
-		setTotal(
-			amount
-				.reduce((acc, item) => acc + item.amount * item.price, 0)
-				.toFixed(2)
-		);
+		const newTotal = amount.reduce((acc, item) => acc + item.amount * item.price, 0)
 		setAmount((prev) =>
 			prev
 				.map((item) => {
@@ -41,7 +35,7 @@ const DataProvider = ({children}) => {
 				})
 				.filter((el) => el.amount >= 1)
 		);
-		
+		setTotal(newTotal.toFixed(2));
 		setProducts(prev => prev - 1)
 	};
     const value = {amount, total, handleMinus, handlePlus, products, setProducts}
