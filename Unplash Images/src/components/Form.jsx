@@ -11,7 +11,7 @@ const Form = () => {
     
     const handleSubmit = (e) => {
         e.preventDefault()
-        setQuery(input)
+        setQuery(input.toLowerCase())
         handleRequest()
     }
     
