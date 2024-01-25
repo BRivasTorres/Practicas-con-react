@@ -6,6 +6,7 @@ const DataContext = createContext(null)
 const DataProvider = ({children}) => {
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [input, setInput] = useState("");
 
     useEffect(() => {
         const fetchData = async () => {
@@ -16,8 +17,20 @@ const DataProvider = ({children}) => {
 
         fetchData();
     }, []);
+
+	const handleSubmitSearch = async(e) => {
+		e.preventDefault();
+        setIsLoading(true)
+        const res = await getData(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${input}`);
+        setData(res)
+        setIsLoading(false)
+	};
+
+	const handleSubmitChange = (e) => {
+        setInput(e.target.value)
+	};
     
-    const value = { data, isLoading }   
+    const value = { data, isLoading, handleSubmitChange, handleSubmitSearch, input }   
     return <DataContext.Provider value={value}>{children}</DataContext.Provider>
 }
 

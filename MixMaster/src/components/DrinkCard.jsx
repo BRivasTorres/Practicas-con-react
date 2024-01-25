@@ -1,11 +1,12 @@
 const DrinkCard = ({info}) => {
   return (
 		<div className="drinks-wrapper-styles">
-			{info.map((drink) => {
+			{info 
+				? info.map((drink) => {
 				return (
 					<div
 						key={drink.idDrink}
-						className="bg-[#FFFFFF] shadow-lg rounded-2xl overflow-hidden"
+						className="bg-[#FFFFFF] shadow-lg rounded-2xl overflow-hidden max-w-[350px] "
 					>
 						<img src={drink.strDrinkThumb} alt={drink.strDrink} />
 						<div className="p-[1.5rem] flex flex-col ">
@@ -21,8 +22,9 @@ const DrinkCard = ({info}) => {
                             
 						</div>
 					</div>
-				);
-			})}
+				)}) 
+				: <h2 className="text-center text-[3rem] font-semibold ">No matching cocktails found...</h2>
+			}
 		</div>
   );
 }

@@ -7,7 +7,7 @@ const DrinkList = () => {
     const { data, isLoading } = useContext(DataContext)
     
   return (
-		<div className="">
+		<div>
 			{isLoading ? <Loading /> : <DrinkCard info={data.drinks} />}
 		</div>
   );
