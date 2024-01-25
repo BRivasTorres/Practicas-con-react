@@ -3,10 +3,12 @@ import Header from "./components/Header";
 import About from "./pages/About";
 import Newsletter from "./pages/Newsletter";
 import Home from "./pages/Home";
+import { DataProvider } from "./context/DataContext";
 
 function App() {
   return (
 		<>
+		<DataProvider>
 			<BrowserRouter>
 				<Header />
 				<Routes>
@@ -15,6 +17,7 @@ function App() {
 					<Route path="/newsletter" element={<Newsletter />} ></Route>
 				</Routes>
 			</BrowserRouter>
+		</DataProvider>
 		</>
   );
 }
