@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const DrinkCard = ({info}) => {
   return (
 		<div className="drinks-wrapper-styles">
@@ -19,10 +21,10 @@ const DrinkCard = ({info}) => {
 							<span className="text-[#96748B]">
 								{drink.strAlcoholic}
 							</span>
-                            
+							<Link to={`/cocktail/${drink.idDrink}`} className="bg-greenCustom w-fit px-[1rem] py-[.3rem] mt-[1rem] text-white rounded-md ">Details</Link>
 						</div>
 					</div>
-				)}) 
+				);}) 
 				: <h2 className="text-center text-[3rem] font-semibold ">No matching cocktails found...</h2>
 			}
 		</div>
