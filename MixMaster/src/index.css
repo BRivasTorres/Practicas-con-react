@@ -11,3 +11,14 @@
     max-width: 1200px;
     margin: 0 auto;
 }
+
+.single-cocktail-p {
+    background-color: #6EE7B7;
+    color: #047857;
+    font-weight: 700;
+    text-transform: capitalize;
+    font-size: 1.2rem;
+    padding: .3rem .8rem;
+    border-radius: .75rem;
+    margin-right: 1rem;
+}
