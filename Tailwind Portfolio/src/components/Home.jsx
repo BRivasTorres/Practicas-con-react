@@ -3,7 +3,7 @@ import { faSquareGithub, faLinkedin, faXTwitter } from "@fortawesome/free-brands
 
 const Home = () => {
   return (
-		<div className="w-[60%] max-w-[1200px] mx-auto grid grid-cols-[_1fr_1fr] gap-[2rem] items-center py-[4.5rem] ">
+		<div className="w-[60%] max-w-[1200px] mx-auto grid grid-cols-[_1fr_1fr] gap-[2rem] items-center py-[4.5rem] " id="home">
 			<section className="text-[#334155] ">
 				<h2 className="text-[5rem] font-bold text-black ">I'm Billy</h2>
 				<h3 className="text-[2rem]">Front-End Developer</h3>

@@ -1,13 +1,11 @@
-import { Link } from "react-router-dom";
-
 const Nav = () => {
   return (
 		<nav>
 			<ul className="text-[1.4rem] flex gap-[.7rem] items-center ">
-				<Link to={"/"}>Home</Link>
-				<Link to={"skills"}>Skills</Link>
-				<Link to={"/about"}>About</Link>
-				<Link to={"/proyects"}>Proyects</Link>
+				<a href={"#home"}>Home</a>
+				<a href={"#skills"}>Skills</a>
+				<a href={"#about"}>About</a>
+				<a href={"#projects"}>Proyects</a>
 			</ul>
 		</nav>
   );
