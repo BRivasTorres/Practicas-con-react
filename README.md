@@ -39,3 +39,5 @@ Repositorio para reforzar, aprender y practicar conceptos aprendidos en react. P
 <a href="https://contentful-cms-proyect15.netlify.app/"><img src="https://i.ibb.co/X7sqFz9/15.png" alt="15" width="500px"></a>
 <h3>Proyect 16: MixMaster</h3>
 <a href="https://mix-master-proyect.netlify.app/"><img src="https://i.ibb.co/L0BY2P7/16.png" alt="16" width="500px"></a>
+<h3>Proyect 17: Tailwind Portfolio</h3>
+<a href="https://tailwind-portfoli-proyect17.netlify.app/"><img src="https://i.ibb.co/3CynTMz/17.png" alt="17" width="500px"></a>
