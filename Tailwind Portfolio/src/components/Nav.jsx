@@ -5,7 +5,7 @@ const Nav = () => {
 				<a href={"#home"}>Home</a>
 				<a href={"#skills"}>Skills</a>
 				<a href={"#about"}>About</a>
-				<a href={"#projects"}>Proyects</a>
+				<a href={"#proyects"}>Proyects</a>
 			</ul>
 		</nav>
   );

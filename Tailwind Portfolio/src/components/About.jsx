@@ -1,6 +1,6 @@
 const About = () => {
   return (
-		<div className="bg-[#FFFFFF] py-[7rem] ">
+		<div className="bg-[#FFFFFF] py-[7rem]" id="about">
 			<div className="w-[55%] mx-auto  grid grid-cols-[_50%_50%] gap-x-[2rem] items-center">
 				<img
 					src="/imgs/about.svg"
