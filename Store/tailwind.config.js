@@ -5,6 +5,8 @@ export default {
 		extend: {
 			colors: {
 				"nav-bg-light": "#F0F6FF",
+				"nav-bg-active": "#021431", 
+				"nav-hov-light": "#EAF0FA",
 				"main-bg-light": "#FFFFFF",
 				"text-light": "#394E6A",
 				"bg-products-light": "#C149AD",
