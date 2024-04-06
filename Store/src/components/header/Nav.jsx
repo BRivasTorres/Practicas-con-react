@@ -1,17 +1,22 @@
 import { NavLink } from "react-router-dom"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
-import { faMoon, faSun } from "@fortawesome/free-regular-svg-icons";
+import { faCartShopping, faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
+import ThemeContext from "../../context/ThemeContext";
+import { useContext } from "react";
 
 const Nav = () => {
+	const {theme, handleChangeTheme} = useContext(ThemeContext);
+	
   return (
-		<nav className="bg-bg-light text-text-light py-[1.5rem] flex items-center justify-around border">
-			<a
-				href="/"
-				className="bg-[#057AFF] w-[50px] h-[50px] grid place-content-center font-semibold text-[2rem] text-white leading-[2.25rem] rounded-[8px] "
+		<nav
+			className={` bg-bg-light text-text-light py-[1.5rem] flex items-center justify-around`}
+		>
+			<NavLink
+				to="/"
+				className="bg-[#057AFF] w-[50px] h-[50px] grid place-content-center font-semibold text-[2rem] text-white leading-[2.25rem] rounded-[8px]"
 			>
 				C
-			</a>
+			</NavLink>
 			<ul>
 				<NavLink
 					to={"/"}
@@ -54,12 +59,23 @@ const Nav = () => {
 					Cart
 				</NavLink>
 			</ul>
-			<section>
+			<section className="flex gap-x-[1rem] text-[1.3rem] ">
 				<div>
-					<FontAwesomeIcon icon={faSun} />
-					<FontAwesomeIcon icon={faMoon} />
+					{theme === "dark" ? (
+						<button onClick={() => handleChangeTheme("light")}>
+							<FontAwesomeIcon icon={faMoon} />
+						</button>
+					) : (
+						<button onClick={() => handleChangeTheme("dark")}>
+							<FontAwesomeIcon icon={faSun} />
+						</button>
+					)}
 				</div>
-				<FontAwesomeIcon icon={faCartShopping} />
+				<div>
+					<button>
+						<FontAwesomeIcon icon={faCartShopping} />
+					</button>
+				</div>
 			</section>
 		</nav>
   );

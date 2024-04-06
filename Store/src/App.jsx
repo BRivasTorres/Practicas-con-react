@@ -4,19 +4,22 @@ import About from "./pages/About"
 import Products from "./pages/Products"
 import Cart from "./pages/Cart"
 import StoreApp from "./components/StoreApp"
+import { ThemeProvider } from "./context/ThemeContext"
 
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <StoreApp />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/cart" element={<Cart />} />
-        </Routes>
-      </BrowserRouter>
+      <ThemeProvider>
+        <BrowserRouter>
+          <StoreApp />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/cart" element={<Cart />} />
+          </Routes>
+        </BrowserRouter>
+      </ThemeProvider>
     </>
   )
 }
