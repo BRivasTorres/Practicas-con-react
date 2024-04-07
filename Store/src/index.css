@@ -9,11 +9,20 @@
     border-radius: 7px;
 }
 
-.nav-link:hover {
+.nav-link-light:hover {
     background-color: hsl(214deg 30% 32% / 10%);
 }
 
-.nav-link:active {
+.nav-link-light:active {
     background-color: #021431;
+    color: #C7C9D1;
+}
+
+.nav-link-dark:hover {
+    background-color: #414558;
+}
+
+.nav-link-light:active {
+    background-color: #414558;
     color: #C7C9D1;
 }
