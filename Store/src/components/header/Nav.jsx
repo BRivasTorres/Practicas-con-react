@@ -15,7 +15,7 @@ const Nav = () => {
 				theme === "dark"
 					? "bg-bg-dark text-text-dark"
 					: "bg-bg-light text-text-light"
-			}  py-[1.5rem] flex items-center justify-around`}
+			}  py-[.5rem] flex items-center justify-around`}
 		>
 			<NavLink
 				to="/"
@@ -23,7 +23,7 @@ const Nav = () => {
 					theme === "dark"
 						? "bg-btns-bg-dark text-bg-dark"
 						: "bg-[#057AFF] text-white "
-				}  w-[50px] h-[50px] grid place-content-center font-semibold text-[2rem]  leading-[2.25rem] rounded-[8px]`}
+				}  w-[50px] h-[50px] grid place-content-center font-semibold text-[2rem]  leading-[2.25rem] rounded-[8px]  hover:opacity-[.8] transition-all duration-300 `}
 			>
 				C
 			</NavLink>
@@ -64,7 +64,7 @@ const Nav = () => {
 							className={`${
 								theme === "dark"
 									? "bg-btns-bg-dark text-bg-dark"
-									: "bg-[#057AFF] text-white "
+									: "bg-[#057AFF] text-white"
 							}  text-[1rem] px-[.5rem] rounded-[50%] absolute top-[5px] right-[3px]`}
 						>
 							0

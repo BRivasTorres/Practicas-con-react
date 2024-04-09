@@ -8,10 +8,12 @@ export default {
 				"text-light": "#394E6A",
 				"nav-hov-light": "#EAF0FA",
 				"nav-hov-text": "#C7C9D1",
-				"bg-products-light": "#C149AD",				
-				
-				"bg-dark" : "#181920",
+				"btns-bg-light" : "#057AFF",
+				"bg-products-light": "#C149AD",
+
+				"bg-dark": "#181920",
 				"text-dark": "#F8F8F2",
+				"main-dark": "#272935",
 				"btns-bg-dark": "#FF7AC6",
 				"active-bg-dark": "#414558",
 				"bg-products-dark": "#FFA94D",
