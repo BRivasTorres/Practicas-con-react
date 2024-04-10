@@ -1,39 +1,59 @@
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import ThemeContext from "../../context/ThemeContext";
-
-//TODO create styles for main section and create carousel
+import heroImgs from "../../mocks/HeroImgs";
 
 const MainPrincipalProducts = () => {
     const {theme} = useContext(ThemeContext)
     
   return (
-		<div className="w-[80%] mx-auto flex gap-x-[3rem] border border-blue-800 ">
-			<section className="flex flex-col gap-[2rem]">
-				<h2 className="text-[3.5rem] font-bold leading-[60px] ">
+		<div className="w-[80%] mx-auto grid grid-cols-[_50%_50%] items-center gap-x-[5rem] min-h-[100vh]">
+			<section className="flex flex-col">
+				<h2 className="text-[4rem] font-bold leading-[60px]">
 					We are changing the way people shop
 				</h2>
-				<p>
+				<p className="mt-[2rem]">
 					Lorem ipsum, dolor sit amet consectetur adipisicing elit.
 					Tempore repellat explicabo enim soluta temporibus asperiores
 					aut obcaecati perferendis porro nobis.
 				</p>
 				<NavLink
+					to={"/products"}
 					className={`${
 						theme === "dark"
 							? "bg-btns-bg-dark text-main-dark"
 							: "bg-btns-bg-light text-white"
-					}  hover:opacity-[.8] transition-all duration-300 uppercase text-[1rem] font-semibold px-[1rem] py-[.5rem] w-fit rounded-[8px]`}
+					}  hover:opacity-[.8] transition-all duration-300 uppercase text-[1.3rem] font-semibold px-[1rem] py-[.5rem] w-fit rounded-[8px] mt-[3rem] `}
 				>
 					our products
 				</NavLink>
 			</section>
 
-			<section className="w-[100%] ">
-				<div className="bg-[#414558] h-[200px]"></div>
+			<section>
+				<div
+					className={`${
+						theme === "dark" ? "bg-[#414558]" : "bg-bg-dark"
+					}  h-[500px] rounded-[20px] flex overflow-x-hidden`}
+				>
+					<div className={` flex p-[1rem] gap-x-[1rem] transition-all duration-300 ease-linear`}>
+						{heroImgs.map((img) => {
+							return (
+								<img
+									src={img.src}
+									key={img.id}
+									className="rounded-[20px] w-[400px]"
+								/>
+							);
+						})}
+					</div>
+				</div>
 			</section>
 		</div>
   );
 }
 
 export default MainPrincipalProducts
+
+// -20%
+// -40%
+// -120%

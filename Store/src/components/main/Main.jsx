@@ -7,7 +7,7 @@ const Main = () => {
     const {theme} = useContext(ThemeContext)
     
   return (
-    <div className={`${theme === "dark" ? "bg-main-dark text-white" : "white text-main-dark"} border border-red-600 `}>
+    <div className={`${theme === "dark" ? "bg-main-dark text-white" : "white text-main-dark"}`}>
         <MainPrincipalProducts />
         <MainFeaturedProducts />
     </div>
