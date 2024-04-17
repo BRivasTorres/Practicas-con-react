@@ -37,7 +37,7 @@ const MainPrincipalProducts = () => {
 				>
 					<div className={` flex p-[1rem] gap-x-[1rem] transition-all duration-300 ease-linear`}>
 						{heroImgs.map((img) => {
-							return (
+							return (  
 								<img
 									src={img.src}
 									key={img.id}
