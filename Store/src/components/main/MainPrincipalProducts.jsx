@@ -7,8 +7,8 @@ const MainPrincipalProducts = () => {
     const {theme} = useContext(ThemeContext)
     
   return (
-		<div className="w-[80%] mx-auto grid grid-cols-[_50%_50%] items-center gap-x-[5rem] min-h-[100vh]">
-			<section className="flex flex-col">
+		<div className="w-[80%] mx-auto grid grid-cols-[_50%_50%] items-center pt-[4rem] ">
+			<section className="flex flex-col mr-[3rem] ">
 				<h2 className="text-[4rem] font-bold leading-[60px]">
 					We are changing the way people shop
 				</h2>
@@ -53,7 +53,3 @@ const MainPrincipalProducts = () => {
 }
 
 export default MainPrincipalProducts
-
-// -20%
-// -40%
-// -120%

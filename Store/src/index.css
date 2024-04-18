@@ -26,3 +26,9 @@
     background-color: #414558;
     color: #C7C9D1;
 }
+
+.featured-products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3.5rem 3.5rem; 
+}
