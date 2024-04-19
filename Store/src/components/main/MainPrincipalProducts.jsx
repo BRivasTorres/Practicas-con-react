@@ -7,8 +7,8 @@ const MainPrincipalProducts = () => {
     const {theme} = useContext(ThemeContext)
     
   return (
-		<div className="w-[80%] mx-auto grid grid-cols-[_50%_50%] items-center pt-[4rem] ">
-			<section className="flex flex-col mr-[3rem] ">
+		<div className="w-[80%] mx-auto grid lg:grid-cols-[_50%_50%] items-center pt-[4rem] ">
+			<section className="flex flex-col mr-[3rem]">
 				<h2 className="text-[4rem] font-bold leading-[60px]">
 					We are changing the way people shop
 				</h2>
@@ -29,7 +29,7 @@ const MainPrincipalProducts = () => {
 				</NavLink>
 			</section>
 
-			<section>
+			<section className="hidden lg:block ">
 				<div
 					className={`${
 						theme === "dark" ? "bg-[#414558]" : "bg-bg-dark"

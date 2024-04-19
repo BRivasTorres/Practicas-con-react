@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import ThemeContext from "../../context/ThemeContext" 
 import productsData from "../../mocks/ProductsData"
-//TODO create media querys for nav
+
 const MainFeaturedProducts = () => {      
   const {theme} = useContext(ThemeContext)
   
@@ -20,17 +20,17 @@ const MainFeaturedProducts = () => {
 				{productsData.map((item) => {
 					return item.attributes.featured === true ? (
 						<section key={item.id}>
-              <div>
-                <img
-                  src={item.attributes.image}
-                  alt={item.attributes.title}
-                  className="h-[350px] w-[100%] rounded-[30px]"
-                />
-              </div>
-              <div className="flex flex-col items-center mt-[2rem] ">
-                <h2 className="capitalize font-semibold text-[1.5rem]">{item.attributes.title}</h2>
-                <span className={`${theme === "dark" ? "text-[#BF87C6]" : "text-main-dark" }`}>${item.attributes.price}</span>
-              </div>
+							<div>
+								<img
+								src={item.attributes.image}
+								alt={item.attributes.title}
+								className="h-[300px] w-[100%] rounded-[30px]"
+								/>
+							</div>
+							<div className="flex flex-col items-center mt-[2rem] ">
+								<h2 className="capitalize font-semibold text-[1.5rem]">{item.attributes.title}</h2>
+								<span className={`${theme === "dark" ? "text-[#BF87C6]" : "text-main-dark" }`}>${item.attributes.price}</span>
+							</div>
 						</section>
 					) : null;
 				})}
