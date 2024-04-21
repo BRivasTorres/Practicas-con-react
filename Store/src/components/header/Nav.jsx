@@ -1,15 +1,21 @@
 import { NavLink } from "react-router-dom"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartShopping, faMoon, faSun, faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
-import ThemeContext from "../../context/ThemeContext";
-import { useContext } from "react";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { useContext, useState } from "react";
 import NavLinkComponent from "./NavLinkComponent";
 import navigationPages from "../../mocks/NavigationPages";
+import ThemeContext from "../../context/ThemeContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import DarkMode from "./DarkMode";
+import Chart from "./Chart";
 
-//TODO: stylize nav menu mobile
 
 const Nav = () => {
-	const {theme, handleChangeTheme} = useContext(ThemeContext);
+	const [isOpenNav, setIsOpenNav] = useState(false)
+	const {theme} = useContext(ThemeContext)
+	
+	const toggleNav = () => {
+		setIsOpenNav(!isOpenNav)
+	}
 	
   return (
 		<nav
@@ -17,78 +23,68 @@ const Nav = () => {
 				theme === "dark"
 					? "bg-bg-dark text-text-dark"
 					: "bg-bg-light text-text-light"
-			}  `}
+			} relative py-[1rem] `}
 		>
-			<section className="px-[2.5rem] py-[1rem] ">
-				<FontAwesomeIcon
-					icon={faBars}
-					className="text-[2rem] p-[1rem]  transition-all duration-200 ease-linear rounded-[10px] hover:bg-[#45464A] hover:border-[#595a5f] hover:cursor-pointer"
-				/>
-				<FontAwesomeIcon icon={faXmark} className="hidden" />
-			</section>
-
-			<section className="hidden lg:block">
-				<div className="py-[.5rem] flex items-center justify-around">
-					<NavLink
-						to="/"
+			<section className="w-[80%] mx-auto lg:hidden ">
+				<button onClick={() => toggleNav()}>
+					<FontAwesomeIcon
+						icon={faBars}
 						className={`${
 							theme === "dark"
-								? "bg-btns-bg-dark text-bg-dark"
-								: "bg-[#057AFF] text-white"
-						} w-[50px] h-[50px] grid place-content-center font-semibold text-[2rem] leading-[2.25rem] rounded-[8px] hover:opacity-[.8] transition-all duration-300`}
-					>
-						C
-					</NavLink>
-					<ul className="flex">
-						{navigationPages.map((navItem) => {
-							return (
-								<NavLinkComponent
-									key={navItem.id}
-									link={navItem.to}
-									label={navItem.label}
-								/>
-							);
-						})}
-					</ul>
-					<section className="flex gap-x-[1rem] text-[1.3rem]">
-						<div>
-							{theme === "dark" ? (
-								<button
-									onClick={() => handleChangeTheme("light")}
-								>
-									<FontAwesomeIcon icon={faSun} />
-								</button>
-							) : (
-								<button
-									onClick={() => handleChangeTheme("dark")}
-								>
-									<FontAwesomeIcon icon={faMoon} />
-								</button>
-							)}
+								? "hover:bg-[#45464A] active:bg-[#45464A] text-white"
+								: "hover:bg-[#CBD5E1] active:bg-[#CBD5E1] text-main-dark"
+						} mobile-nav`}
+					/>
+					{isOpenNav && (
+						<div className={`${theme === "dark" ? "bg-bg-dark" : "bg-bg-light" } absolute left-[10%] top-[110px] w-[180px] rounded-[10px]`} >
+							<ul className="flex flex-col items-start gap-y-[1rem] text-[1rem] p-[1rem]">
+								{navigationPages.map((navItem) => {
+									return (
+										<NavLinkComponent
+											key={navItem.id}
+											link={navItem.to}
+											label={navItem.label}
+										/>
+									);
+								})}
+							</ul>
+							<FontAwesomeIcon className="mobile-nav-btn" />
 						</div>
-						<div>
-							<NavLink
-								to="/cart"
-								className={`${
-									theme === "dark"
-										? "hover:bg-active-bg-dark"
-										: "hover:bg-nav-hov-text"
-								}  p-[1rem] rounded-[50%] relative`}
-							>
-								<FontAwesomeIcon icon={faCartShopping} />
-								<span
-									className={`${
-										theme === "dark"
-											? "bg-btns-bg-dark text-bg-dark"
-											: "bg-[#057AFF] text-white"
-									}  text-[1rem] px-[.5rem] rounded-[50%] absolute top-[5px] right-[3px]`}
-								>
-									0
-								</span>
-							</NavLink>
-						</div>
+					)}
+				</button>
+			</section>
+
+			<section className="grid grid-cols-[_80%_20%] items-center justify-around w-[80%] mx-auto">
+				<div className="hidden lg:block">
+					<section className="py-[.5rem] grid grid-cols-[_20%_80%] items-center">
+						<NavLink
+							to="/"
+							className={`${
+								theme === "dark"
+									? "bg-btns-bg-dark text-bg-dark"
+									: "bg-[#057AFF] text-white"
+							} w-[50px] h-[50px] grid place-content-center font-semibold text-[2rem] leading-[2.25rem] rounded-[8px] hover:opacity-[.8] transition-all duration-300 `}
+						>
+							C
+						</NavLink>
+						<ul className="flex justify-center">
+							{navigationPages.map((navItem) => {
+								return (
+									<NavLinkComponent
+										key={navItem.id}
+										link={navItem.to}
+										label={navItem.label}
+									/>
+								);
+							})}
+						</ul>
 					</section>
 				</div>
+
+				<section className="flex items-center justify-center gap-x-[.5rem] text-[1.3rem] absolute right-[10%] top-[30%]">
+					<DarkMode />
+					<Chart />
+				</section>
 			</section>
 		</nav>
   );
