@@ -46,3 +46,47 @@
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 2rem;
 }
+
+.price-input {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 25px;
+    background-color: transparent;
+    outline: none;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.price-input-dark::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: #FF7AC6;
+    border: 4px solid #333;
+    box-shadow: -407px 0 0 400px #FF7AC6;
+}
+
+.price-input-light::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: #057AFF;
+    border: 4px solid white;
+    box-shadow: -407px 0 0 400px #057AFF;
+}
+
+.dark {
+    background-color: #FF7AC6;
+    border: 4px solid #333;
+    box-shadow: -407px 0 0 400px #FF7AC6;
+}
+
+.light {
+    background-color: #057AFF;
+    border: 4px solid white;
+    box-shadow: -407px 0 0 400px #057AFF;
+}

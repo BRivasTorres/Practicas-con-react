@@ -2,6 +2,7 @@ import { useContext } from "react";
 import filterData from "../../mocks/filterData";
 import InputSearchProduct from "./FilterSearch";
 import ThemeContext from "../../context/ThemeContext";
+import FilterPrice from "./FilterPrice";
 
 const FilterInput = () => {
 	
@@ -40,6 +41,7 @@ const FilterInput = () => {
 					</div>
 				);
 			})}
+			<FilterPrice />
 		</div>
 	);
 };
