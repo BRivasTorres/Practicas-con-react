@@ -70,7 +70,7 @@
     cursor: pointer;
     background-color: var(--bg-dark);
     border: 4px solid #333;
-    box-shadow: -407px 0 0 400px var(--bg-dark);
+    box-shadow: -407px 0 0 390px var(--bg-dark);
 }
 
 .price-input-light::-webkit-slider-thumb {

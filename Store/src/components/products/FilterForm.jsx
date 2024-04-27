@@ -4,6 +4,7 @@ import ThemeContext from "../../context/ThemeContext";
 import FilterPrice from "./FilterPrice";
 import FilterShipping from "./FilterShipping";
 import FilterSelects from "./FilterSelects";
+import FilterBtns from "./FilterBtns";
 
 const FilterForm = () => {
 	
@@ -15,6 +16,7 @@ const FilterForm = () => {
 			<FilterSelects />
 			<FilterPrice />
 			<FilterShipping />
+			<FilterBtns />
 		</div>
 	);
 };

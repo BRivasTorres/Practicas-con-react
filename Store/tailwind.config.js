@@ -16,7 +16,7 @@ export default {
 				"main-dark": "#272935",
 				"btns-bg-dark": "#FF7AC6",
 				"active-bg-dark": "#414558",
-				"bg-products-dark": "#FFA94D",
+				"products-dark": "#FFA94D",
 			},
 		},
 	},

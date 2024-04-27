@@ -1,15 +1,10 @@
-import { useContext, useState } from "react"
+import { useContext } from "react"
 import ThemeContext from "../../context/ThemeContext"
+import FilterContext from "../../context/FilterContext";
 
 const FilterSearch = () => {
-    const [inputSearch, setInputSearch] = useState("")
-    
-    const handleInputSearch = (e) => {
-        setInputSearch(e.target.value)
-        console.log(e.target.value)
-    }
-    
-    const {theme} = useContext(ThemeContext)
+    const { theme } = useContext(ThemeContext);
+	const {filterInputs, handleInputSearch} = useContext(FilterContext)
     
   return (
 		<div className="flex flex-col gap-y-[1rem]">
@@ -18,7 +13,7 @@ const FilterSearch = () => {
 				type="text"
 				name="input-search"
 				id="input-search"
-				value={inputSearch}
+				value={filterInputs.inputSearch}
 				onChange={handleInputSearch}
 				className={`${
 					theme === "dark"

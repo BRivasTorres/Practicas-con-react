@@ -1,10 +1,24 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import filterData from '../../mocks/filterData';
 import ThemeContext from '../../context/ThemeContext';
 
 const FilterSelects = () => {
     const {theme} = useContext(ThemeContext)
+	
+	const [selectValues, setSelectValues] = useState({
+		selectCategory: "all",
+		selectCompany: "all",
+		sortBy: "a-z"
+	})
     
+	const handleSelectValues = (e) => {
+		const {name, value} = e.target
+		setSelectValues({
+			...selectValues,
+			[name] : value
+		})
+	}
+	
   return (
 		<>
 			{filterData.map((select) => {
@@ -16,11 +30,13 @@ const FilterSelects = () => {
 						<select
 							name={select.title}
 							id={select.title}
+							value={selectValues[select.title]}
+							onChange={handleSelectValues}
 							className={`${
 								theme === "dark"
 									? "bg-main-dark text-white border border-[#3F414B]"
 									: "bg-white text-main-dark border border-[#D7DCE1]"
-							} px-[1rem] py-[.5rem] rounded-[10px] cursor-pointer `}
+							} px-[1rem] py-[.5rem] rounded-[10px] cursor-pointer`}
 						>
 							{select.selections.map((option, id) => {
 								return (
