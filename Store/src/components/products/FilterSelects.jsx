@@ -1,16 +1,12 @@
-import { useContext } from "react";
-import filterData from "../../mocks/filterData";
-import InputSearchProduct from "./FilterSearch";
-import ThemeContext from "../../context/ThemeContext";
-import FilterPrice from "./FilterPrice";
+import { useContext } from 'react';
+import filterData from '../../mocks/filterData';
+import ThemeContext from '../../context/ThemeContext';
 
-const FilterInput = () => {
-	
-	const {theme} = useContext(ThemeContext)
-	
-	return (
-		<div className="select-inputs p-[2rem] ">
-			<InputSearchProduct />
+const FilterSelects = () => {
+    const {theme} = useContext(ThemeContext)
+    
+  return (
+		<>
 			{filterData.map((select) => {
 				return (
 					<div key={select.id} className="flex flex-col gap-y-[1rem]">
@@ -41,9 +37,8 @@ const FilterInput = () => {
 					</div>
 				);
 			})}
-			<FilterPrice />
-		</div>
-	);
-};
+		</>
+  );
+}
 
-export default FilterInput;
+export default FilterSelects

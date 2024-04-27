@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --bg-dark: #FF7AC6;
+    --bg-light: #057AFF;
+}
+
 .nav-link {
     padding: .5rem 1rem;
     transition: all 300ms ease-in;
@@ -41,7 +46,7 @@
     transition: all 400ms linear;
 }
 
-.select-inputs {
+.filter-form {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 2rem;
@@ -63,9 +68,9 @@
     height: 25px;
     border-radius: 50%;
     cursor: pointer;
-    background-color: #FF7AC6;
+    background-color: var(--bg-dark);
     border: 4px solid #333;
-    box-shadow: -407px 0 0 400px #FF7AC6;
+    box-shadow: -407px 0 0 400px var(--bg-dark);
 }
 
 .price-input-light::-webkit-slider-thumb {
@@ -74,19 +79,42 @@
     height: 25px;
     border-radius: 50%;
     cursor: pointer;
-    background-color: #057AFF;
+    background-color: var(--bg-light);
     border: 4px solid white;
-    box-shadow: -407px 0 0 400px #057AFF;
+    box-shadow: -407px 0 0 400px var(--bg-light);
 }
 
 .dark {
-    background-color: #FF7AC6;
+    background-color: var(--bg-dark);
     border: 4px solid #333;
-    box-shadow: -407px 0 0 400px #FF7AC6;
+    box-shadow: -407px 0 0 400px var(--bg-dark);
 }
 
 .light {
-    background-color: #057AFF;
+    background-color: var(--bg-light);
     border: 4px solid white;
-    box-shadow: -407px 0 0 400px #057AFF;
+    box-shadow: -407px 0 0 400px var(--bg-light);
+}
+
+.shipping-checkbox {
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    border-radius: 10px;
+    appearance: none;
+}
+
+.shipping-dark {
+    border: 1px solid var(--bg-dark);
+}
+.shipping-dark:checked {
+    background-color: var(--bg-dark);
+}
+
+.shipping-light {
+    border: 1px solid var(--bg-light);
+}
+
+.shipping-light:checked {
+    background-color: var(--bg-light);
 }
