@@ -5,23 +5,26 @@ import Products from "./pages/Products"
 import Cart from "./pages/Cart"
 import StoreApp from "./components/StoreApp"
 import { ThemeProvider } from "./context/ThemeContext"
+import { FilterContextProvider } from "./context/FilterContext"
 
 function App() {
   return (
-    <>
-      <ThemeProvider>
-        <BrowserRouter>
-          <StoreApp />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/products" element={<Products />} />
-            <Route path="/cart" element={<Cart />} />
-          </Routes>
-        </BrowserRouter>
-      </ThemeProvider>
-    </>
-  )
+		<>
+			<ThemeProvider>
+				<FilterContextProvider>
+					<BrowserRouter>
+						<StoreApp />
+						<Routes>
+							<Route path="/" element={<Home />} />
+							<Route path="/about" element={<About />} />
+							<Route path="/products" element={<Products />} />
+							<Route path="/cart" element={<Cart />} />
+						</Routes>
+					</BrowserRouter>
+				</FilterContextProvider>
+			</ThemeProvider>
+		</>
+  );
 }
 
 export default App

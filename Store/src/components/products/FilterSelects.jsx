@@ -1,23 +1,11 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import filterData from '../../mocks/filterData';
 import ThemeContext from '../../context/ThemeContext';
+import FilterContext from '../../context/FilterContext';
 
 const FilterSelects = () => {
     const {theme} = useContext(ThemeContext)
-	
-	const [selectValues, setSelectValues] = useState({
-		selectCategory: "all",
-		selectCompany: "all",
-		sortBy: "a-z"
-	})
-    
-	const handleSelectValues = (e) => {
-		const {name, value} = e.target
-		setSelectValues({
-			...selectValues,
-			[name] : value
-		})
-	}
+	const {filterInputs, handleSelectValues} = useContext(FilterContext)
 	
   return (
 		<>
@@ -30,7 +18,7 @@ const FilterSelects = () => {
 						<select
 							name={select.title}
 							id={select.title}
-							value={selectValues[select.title]}
+							value={filterInputs.selectValues[select.title]}
 							onChange={handleSelectValues}
 							className={`${
 								theme === "dark"
