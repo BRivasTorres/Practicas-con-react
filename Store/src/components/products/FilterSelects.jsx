@@ -26,7 +26,7 @@ const FilterSelects = () => {
 									: "bg-white text-main-dark border border-[#D7DCE1]"
 							} px-[1rem] py-[.5rem] rounded-[10px] cursor-pointer`}
 						>
-							{select.selections.map((option, id) => {
+							{select.options.map((option, id) => {
 								return (
 									<option
 										value={option}

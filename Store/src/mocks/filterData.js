@@ -2,12 +2,12 @@ const filterData = [
 	{
         id: 1,
         title: "select category",
-		selections: ["all", "Tables", "Chairs", "Kids", "Sofas", "Beds"],
+		options: ["all", "Tables", "Chairs", "Kids", "Sofas", "Beds"],
 	},
 	{
         id: 2,
         title: "select company",
-		selections : [
+		options : [
 			"all",
 			"Modenza",
 			"Luxora",
@@ -19,7 +19,7 @@ const filterData = [
 	{
         id: 3,
         title: "sort-by",
-		selections : ["a-z", "z-a", "high", "low"],
+		options : ["a-z", "z-a", "high", "low"],
 	},
 ];
 

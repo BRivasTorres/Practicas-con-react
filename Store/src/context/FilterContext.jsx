@@ -8,9 +8,9 @@ const FilterContextProvider = ({children}) => {
 		inputSearch: "",
 		isShippingFree: false,
 		selectValues: {
-			selectCategory: "all",
-			selectCompany: "all",
-			sortBy: "a-z",
+			"select category": "all",
+			"select company": "all",
+			"sort-by": "a-z",
 		},
 	});
     
@@ -52,14 +52,14 @@ const FilterContextProvider = ({children}) => {
                 inputSearch: "",
                 isShippingFree: false,
                 selectValues: {
-                    selectCategory: "all",
-                    selectCompany: "all",
-                    sortBy: "a-z",
+                    "select category": "all",
+                    "select company": "all",
+                    "sort-by": "a-z",
 			}}
         )
     }
     
-    return <FilterContext.Provider value={{filterInputs, handleChangePrice, handleInputSearch, handleShippingFree, handleSelectValues, handleReset}}>{children}</FilterContext.Provider>
+    return <FilterContext.Provider value={{filterInputs, handleChangePrice, handleInputSearch, handleShippingFree, handleSelectValues, handleReset }}>{children}</FilterContext.Provider>
 }
 
 export default FilterContext
