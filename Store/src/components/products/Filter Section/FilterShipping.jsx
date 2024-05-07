@@ -1,6 +1,6 @@
 import { useContext } from "react"
-import ThemeContext from "../../context/ThemeContext"
-import FilterContext from "../../context/FilterContext"
+import ThemeContext from "../../../context/ThemeContext"
+import FilterContext from "../../../context/FilterContext"
 
 const FilterShipping = () => {
     const {theme} = useContext(ThemeContext)

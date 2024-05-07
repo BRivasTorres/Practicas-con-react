@@ -1,7 +1,7 @@
 import { useContext } from 'react';
-import filterData from '../../mocks/filterData';
-import ThemeContext from '../../context/ThemeContext';
-import FilterContext from '../../context/FilterContext';
+import filterData from '../../../mocks/filterData';
+import ThemeContext from '../../../context/ThemeContext';
+import FilterContext from '../../../context/FilterContext';
 
 const FilterSelects = () => {
     const {theme} = useContext(ThemeContext)

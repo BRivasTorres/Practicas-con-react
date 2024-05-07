@@ -6,6 +6,7 @@ import Cart from "./pages/Cart"
 import StoreApp from "./components/StoreApp"
 import { ThemeProvider } from "./context/ThemeContext"
 import { FilterContextProvider } from "./context/FilterContext"
+import Product from "./pages/Product"
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
 							<Route path="/about" element={<About />} />
 							<Route path="/products" element={<Products />} />
 							<Route path="/cart" element={<Cart />} />
+							<Route path="/product/:name" element={<Product />} />
 						</Routes>
 					</BrowserRouter>
 				</FilterContextProvider>
