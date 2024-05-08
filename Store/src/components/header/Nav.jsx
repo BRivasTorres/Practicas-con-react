@@ -17,6 +17,8 @@ const Nav = () => {
 		setIsOpenNav(!isOpenNav)
 	}
 	
+	const themeStyleIcons = `hover:bg-[${theme === "dark" ? "#45464A" : "#CBD5E1"}] active:bg-[${theme === "dark" ? "#45464A" : "#CBD5E1"}] `;
+	
   return (
 		<nav
 			className={`${
@@ -29,11 +31,7 @@ const Nav = () => {
 				<button onClick={() => toggleNav()}>
 					<FontAwesomeIcon
 						icon={faBars}
-						className={`${
-							theme === "dark"
-								? "hover:bg-[#45464A] active:bg-[#45464A] text-white"
-								: "hover:bg-[#CBD5E1] active:bg-[#CBD5E1] text-main-dark"
-						} mobile-nav`}
+						className={`${themeStyleIcons} mobile-nav`}
 					/>
 					{isOpenNav && (
 						<div className={`${theme === "dark" ? "bg-bg-dark" : "bg-bg-light" } absolute left-[10%] top-[110px] w-[180px] rounded-[10px]`} >

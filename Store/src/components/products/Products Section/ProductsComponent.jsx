@@ -6,6 +6,7 @@ import ColumnsSelector from "./ColumnsSelector";
 const ProductsComponent = () => {
 	
 	const [currentGrid, setCurrentGrid] = useState("featured-products")
+	
 	const handleColumsGrid = (grid) => {
 		setCurrentGrid(grid)
 	}

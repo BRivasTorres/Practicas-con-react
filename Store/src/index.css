@@ -7,34 +7,35 @@
     --bg-light: #057AFF;
 }
 
-.nav-link {
-    padding: .5rem 1rem;
-    transition: all 300ms ease-in;
-    border-radius: 7px;
-}
-
-.nav-link-light:hover {
-    background-color: hsl(214deg 30% 32% / 10%);
-}
-
-.nav-link-light:active {
-    background-color: #021431;
-    color: #C7C9D1;
-}
-
-.nav-link-dark:hover {
-    background-color: #414558;
-}
-
-.nav-link-light:active {
-    background-color: #414558;
-    color: #C7C9D1;
+@layer utilities {
+    .nav-link {
+        @apply px-[1rem] py-[.5rem] rounded-[10px] transition-all duration-300 ease-linear
+    }
+    .nav-link-light:hover {
+        @apply bg-[#000000]
+    }
+        
+    .nav-link-light:active {
+        @apply bg-[#021431] text-[#C7C9D1]
+    }
+    
+    .nav-link-dark:hover {
+        @apply bg-[#414558] 
+    }
+    
+    .nav-link-light:active {
+        @apply bg-[#414558] 
+    }
+    
+    .grid-btns {
+        @apply p-[.5rem] rounded-[100px] w-[40px] hover:opacity-[.8] active:opacity-[.8];
+    }
 }
 
 .featured-products {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 3.5rem 3.5rem; 
+    gap: 3.5rem 3.5rem;
 }
 
 .mobile-nav {
@@ -118,3 +119,5 @@
 .shipping-light:checked {
     background-color: var(--bg-light);
 }
+
+
