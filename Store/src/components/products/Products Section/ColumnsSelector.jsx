@@ -3,32 +3,40 @@ import { faBars, faGripVertical } from "@fortawesome/free-solid-svg-icons";
 import { useContext } from "react";
 import ThemeContext from "../../../context/ThemeContext";
 
-//TODO fix hover in gird buttons and set different background to an active grid button
-
-const ColumnsSelector = ({ handleColumsGrid }) => {
+const ColumnsSelector = ({ handleIsMultipleGrid, isMultipleGrid }) => {
 	const { theme } = useContext(ThemeContext);
-    
-    const updateGrid = (grid) => {
-        handleColumsGrid(grid)
-    }
 	
-	const themeStyle = `hover:bg-[${
-		theme === "dark" ? "#51535A" : "#D7DCE1"
-	}] focus:bg-${theme === "dark" ? "btns-bg-dark" : "bg-dark"}  grid-btns`;
+	const updateGrid = (newState) => {
+		handleIsMultipleGrid(newState)
+	}
+
+	const themeStyle = `
+		${
+			theme === "dark"
+				? "hover:bg-[#51535A] active:bg-[#51535A]"
+				: "hover:bg-[#D7DCE1] active:bg-[#D7DCE1]"
+		} 
+	grid-btns`;
+	
+	const currentGrid = (isActive) => {
+		if (isActive) {
+			return theme === "dark" ? "bg-btns-bg-dark" : "bg-btns-bg-light";
+		} 
+	}
 	
 	return (
 		<div className="flex justify-between">
 			<h2>22 products</h2>
 			<div className="flex gap-[.5rem]">
 				<button
-					className={`${themeStyle}`}
-					onClick={() => updateGrid("featured-products")}
+					className={`${themeStyle} ${isMultipleGrid === true ? currentGrid(isMultipleGrid) : ""} `}
+					onClick={() => updateGrid(true)}
 				>
 					<FontAwesomeIcon icon={faGripVertical} />
 				</button>
 				<button
-					className={`${themeStyle}`}
-					onClick={() => updateGrid("grid grid-cols-[100%]")}
+					className={`${themeStyle} ${isMultipleGrid === true ? currentGrid(isMultipleGrid) : "" }`}
+					onClick={() => updateGrid(false)}
 				>
 					<FontAwesomeIcon icon={faBars} />
 				</button>

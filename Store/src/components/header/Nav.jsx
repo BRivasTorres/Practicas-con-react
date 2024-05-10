@@ -16,8 +16,8 @@ const Nav = () => {
 	const toggleNav = () => {
 		setIsOpenNav(!isOpenNav)
 	}
+		
 	
-	const themeStyleIcons = `hover:bg-[${theme === "dark" ? "#45464A" : "#CBD5E1"}] active:bg-[${theme === "dark" ? "#45464A" : "#CBD5E1"}] `;
 	
   return (
 		<nav
@@ -31,10 +31,14 @@ const Nav = () => {
 				<button onClick={() => toggleNav()}>
 					<FontAwesomeIcon
 						icon={faBars}
-						className={`${themeStyleIcons} mobile-nav`}
+						className={`${theme === "dark" ? "hover:bg-[#45464A]" : "hover:bg-[#CBD5E1]"} p-[.5rem] rounded-[5px] `}
 					/>
 					{isOpenNav && (
-						<div className={`${theme === "dark" ? "bg-bg-dark" : "bg-bg-light" } absolute left-[10%] top-[110px] w-[180px] rounded-[10px]`} >
+						<div
+							className={`${
+								theme === "dark" ? "bg-bg-dark" : "bg-bg-light"
+							} absolute left-[10%] top-[110px] w-[180px] rounded-[10px]`}
+						>
 							<ul className="flex flex-col items-start gap-y-[1rem] text-[1rem] p-[1rem]">
 								{navigationPages.map((navItem) => {
 									return (
