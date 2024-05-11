@@ -13,15 +13,13 @@ const ColumnsSelector = ({ handleIsMultipleGrid, isMultipleGrid }) => {
 	const themeStyle = `
 		${
 			theme === "dark"
-				? "hover:bg-[#51535A] active:bg-[#51535A]"
-				: "hover:bg-[#D7DCE1] active:bg-[#D7DCE1]"
+				? "hover:bg-[#51535A] active:bg-[#51535A] focus:bg-btns-bg-dark"
+				: "hover:bg-[#D7DCE1] active:bg-[#D7DCE1] focus:bg-btns-bg-light"
 		} 
 	grid-btns`;
 	
-	const currentGrid = (isActive) => {
-		if (isActive) {
-			return theme === "dark" ? "bg-btns-bg-dark" : "bg-btns-bg-light";
-		} 
+	const currentGrid = () => {
+		return theme === "dark" ? "bg-btns-bg-dark" : "bg-btns-bg-light";
 	}
 	
 	return (
@@ -29,13 +27,13 @@ const ColumnsSelector = ({ handleIsMultipleGrid, isMultipleGrid }) => {
 			<h2>22 products</h2>
 			<div className="flex gap-[.5rem]">
 				<button
-					className={`${themeStyle} ${isMultipleGrid === true ? currentGrid(isMultipleGrid) : ""} `}
+					className={`${themeStyle} ${isMultipleGrid === true ? currentGrid() : ""} `}
 					onClick={() => updateGrid(true)}
 				>
 					<FontAwesomeIcon icon={faGripVertical} />
 				</button>
 				<button
-					className={`${themeStyle} ${isMultipleGrid === true ? currentGrid(isMultipleGrid) : "" }`}
+					className={`${themeStyle} ${isMultipleGrid === false ? currentGrid() : "" }`}
 					onClick={() => updateGrid(false)}
 				>
 					<FontAwesomeIcon icon={faBars} />

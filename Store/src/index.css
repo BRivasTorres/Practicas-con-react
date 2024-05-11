@@ -30,6 +30,14 @@
     .grid-btns {
         @apply p-[.5rem] rounded-[100px] w-[40px] hover:opacity-[.8] active:opacity-[.8];
     }
+    
+    .card-products-multi-grid {
+        @apply flex flex-col justify-center items-center hover:cursor-pointer p-[2rem]
+    }
+    
+    .card-products {
+        @apply grid grid-cols-[_10%_70_20%] grid-flow-col items-center p-[2rem] gap-[3rem]
+    }
 }
 
 .featured-products {
