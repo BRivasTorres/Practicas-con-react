@@ -3,30 +3,30 @@ import ThemeContext from "../context/ThemeContext"
 
 const About = () => {
   
-  const {theme} = useContext(ThemeContext)
+    const {theme} = useContext(ThemeContext)
   
-  return (
-		<div
-			className={`${
-				theme === "dark"
-					? "bg-main-dark text-white"
-					: "bg-white text-text-light"
-			} min-h-[100dvh]`}
-		>
-			<div className="w-[80%] mx-auto pt-[3rem]">
-				<h2 className="font-bold text-[3rem] lg:text-[5rem] text-center">
+    return (
+        <div
+            className={`${
+                theme === "dark"
+                    ? "bg-main-dark text-white"
+                    : "bg-white text-text-light"
+            } min-h-[100dvh]`}
+        >
+            <div className="w-[80%] mx-auto pt-[3rem]">
+                <h2 className="font-bold text-[3rem] lg:text-[5rem] text-center">
 					We love{" "}
-					<span
-						className={`${
-							theme === "dark"
-								? "bg-btns-bg-dark text-text-light"
-								: "bg-btns-bg-light text-white"
-						} p-[.8rem] rounded-[20px] text-[3rem]`}
-					>
+                    <span
+                        className={`${
+                            theme === "dark"
+                                ? "bg-btns-bg-dark text-text-light"
+                                : "bg-btns-bg-light text-white"
+                        } p-[.8rem] rounded-[20px] text-[3rem]`}
+                    >
 						comfy
-					</span>
-				</h2>
-				<p className="w-[65%] mx-auto mt-[2rem] ">
+                    </span>
+                </h2>
+                <p className="w-[65%] mx-auto mt-[2rem] ">
 					Lorem ipsum dolor sit amet consectetur adipisicing elit.
 					Dolore, aut veniam doloribus ad fugit in ipsam dolores
 					eligendi, laborum rerum expedita doloremque, temporibus esse
@@ -36,10 +36,10 @@ const About = () => {
 					quisquam rem, delectus iste incidunt fuga excepturi pariatur
 					ullam perferendis libero. Necessitatibus! Lorem ipsum dolor
 					sit amet consectetur, adipisicing elit.
-				</p>
-			</div>
-		</div>
-  );
+                </p>
+            </div>
+        </div>
+    );
 }
 
 export default About

@@ -9,24 +9,24 @@ import { FilterContextProvider } from "./context/FilterContext"
 import Product from "./pages/Product"
 
 function App() {
-  return (
-		<>
-			<ThemeProvider>
-				<FilterContextProvider>
-					<BrowserRouter>
-						<StoreApp />
-						<Routes>
-							<Route path="/" element={<Home />} />
-							<Route path="/about" element={<About />} />
-							<Route path="/products" element={<Products />} />
-							<Route path="/cart" element={<Cart />} />
-							<Route path="/product/:name" element={<Product />} />
-						</Routes>
-					</BrowserRouter>
-				</FilterContextProvider>
-			</ThemeProvider>
-		</>
-  );
+    return (
+        <>
+            <ThemeProvider>
+                <FilterContextProvider>
+                    <BrowserRouter>
+                        <StoreApp />
+                        <Routes>
+                            <Route path="/" element={<Home />} />
+                            <Route path="/about" element={<About />} />
+                            <Route path="/products" element={<Products />} />
+                            <Route path="/cart" element={<Cart />} />
+                            <Route path="/products/:id" element={<Product />} />
+                        </Routes>
+                    </BrowserRouter>
+                </FilterContextProvider>
+            </ThemeProvider>
+        </>
+    );
 }
 
 export default App

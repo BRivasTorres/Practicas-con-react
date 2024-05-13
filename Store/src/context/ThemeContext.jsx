@@ -7,17 +7,17 @@ const ThemeProvider = ({children}) => {
     
     useEffect(() => {
         const darkModeMediaQuery = window.matchMedia(
-			"(prefers-color-scheme: dark)"
-		);
-		const updateTheme = () => {
+            "(prefers-color-scheme: dark)"
+        );
+        const updateTheme = () => {
             darkModeMediaQuery.matches ? setTheme("dark") : setTheme("ligh")
-		};
-		updateTheme();
+        };
+        updateTheme();
 
-		darkModeMediaQuery.addEventListener("change", updateTheme);
-		return () => {
-			darkModeMediaQuery.removeEventListener("change", updateTheme);
-		};
+        darkModeMediaQuery.addEventListener("change", updateTheme);
+        return () => {
+            darkModeMediaQuery.removeEventListener("change", updateTheme);
+        };
     }, []);
     
     const handleChangeTheme = (theme) => setTheme(theme)

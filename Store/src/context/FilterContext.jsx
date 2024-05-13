@@ -13,6 +13,7 @@ const FilterContextProvider = ({children}) => {
 			"sort-by": "a-z",
 		},
 	});
+	const [isMultipleGrid, setIsMultipleGrid] = useState(true);
     
     const handleChangePrice = (e) => {
         setFilterInputs(prevSearch => ({
@@ -59,7 +60,11 @@ const FilterContextProvider = ({children}) => {
         )
     }
     
-    return <FilterContext.Provider value={{filterInputs, handleChangePrice, handleInputSearch, handleShippingFree, handleSelectValues, handleReset }}>{children}</FilterContext.Provider>
+    const handleIsMultipleGrid = (state) => {
+		setIsMultipleGrid(state);
+	};
+    
+    return <FilterContext.Provider value={{filterInputs, handleChangePrice, handleInputSearch, handleShippingFree, handleSelectValues, handleReset, handleIsMultipleGrid, isMultipleGrid }}>{children}</FilterContext.Provider>
 }
 
 export default FilterContext

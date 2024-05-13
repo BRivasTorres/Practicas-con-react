@@ -6,7 +6,7 @@ import FilterShipping from "./FilterShipping";
 import FilterSelects from "./FilterSelects";
 import FilterBtns from "./FilterBtns";
 
-const FilterForm = () => {
+const FilterSection = () => {
 	
 	const {theme} = useContext(ThemeContext)
 	
@@ -21,4 +21,4 @@ const FilterForm = () => {
 	);
 };
 
-export default FilterForm;
+export default FilterSection;

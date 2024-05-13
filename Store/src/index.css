@@ -12,11 +12,11 @@
         @apply px-[1rem] py-[.5rem] rounded-[10px] transition-all duration-300 ease-linear
     }
     .nav-link-light:hover {
-        @apply bg-[#000000]
+        @apply bg-[#000000] text-[#e4e6ee]
     }
         
     .nav-link-light:active {
-        @apply bg-[#021431] text-[#C7C9D1]
+        @apply bg-[#021431] text-[#e4e6ee]
     }
     
     .nav-link-dark:hover {
@@ -31,12 +31,12 @@
         @apply p-[.5rem] rounded-[100px] w-[40px] hover:opacity-[.8] active:opacity-[.8];
     }
     
-    .card-products-multi-grid {
+    .multi-grid {
         @apply flex flex-col justify-center items-center hover:cursor-pointer p-[2rem]
     }
     
-    .card-products {
-        @apply grid grid-cols-[_10%_70_20%] grid-flow-col items-center p-[2rem] gap-[3rem]
+    .single-grid {
+        @apply p-8 flex flex-col sm:flex-row sm:items-start gap-y-4 flex-wrap
     }
 }
 
