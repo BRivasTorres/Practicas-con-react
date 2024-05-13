@@ -9,7 +9,7 @@
 
 @layer utilities {
     .nav-link {
-        @apply px-[1rem] py-[.5rem] rounded-[10px] transition-all duration-300 ease-linear
+        @apply px-[1rem] py-[.5rem] rounded-[10px] transition-all duration-300 ease-linear w-[100px]
     }
     .nav-link-light:hover {
         @apply bg-[#000000] text-[#e4e6ee]
