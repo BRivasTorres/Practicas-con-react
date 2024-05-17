@@ -2,9 +2,11 @@ import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import productsData from "../mocks/ProductsData"
 import SingleProduct from "../components/products/Products Section/SingleProduct"
+import { useContext } from "react"
+import ThemeContext from "../context/ThemeContext"
 
 const Product = () => {
-  
+    const {theme} = useContext(ThemeContext)
     const {id} = useParams()
     const [isLoading, setIsLoading] = useState(false)
     const [data, setData]  = useState([])
@@ -31,7 +33,7 @@ const Product = () => {
         <h2>No data to display</h2>
     } else {
         return (
-            <div>
+            <div className={`${theme === "dark" ? "bg-bg-dark text-white" : "bg-white"}`}>
                 <SingleProduct />
             </div>
         );

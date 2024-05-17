@@ -24,7 +24,7 @@ const ProductsSection = () => {
     }
     
     return (
-        <div className="w-[80%] mx-auto mt-[4rem]">
+        <div className="w-[80%] mx-auto mt-[4rem]"  >
             <ColumnsSelector
                 handleIsMultipleGrid={handleIsMultipleGrid}
                 isMultipleGrid={isMultipleGrid}

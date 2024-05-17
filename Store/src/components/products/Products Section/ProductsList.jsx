@@ -15,9 +15,7 @@ const ProductsList = ({currentPage}) => {
         };
         handleIndexes()
     }, [currentPage]);
-    
-    {console.log(startIndex, endIndex)}
-    
+        
     return (
 	    <div
             className={`${
