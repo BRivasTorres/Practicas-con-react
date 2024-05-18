@@ -10,6 +10,13 @@ const SingleProduct = () => {
     const {theme} = useContext(ThemeContext)
     const {title, company, description, featured, category, image, price, shipping, colors} = productsData[id - 1].attributes
     
+    const colorValues = {
+        green: "#33FF57",
+        blue: "#3366FF",
+        orange: "#FF5733",
+        yellow: "#FFFF00",
+    };
+    
     return (
         <div className={`w-[80%] mx-auto pt-[5rem] min-h-[100dvh] `}>
             <section className="flex items-center gap-[1rem]">
@@ -38,8 +45,17 @@ const SingleProduct = () => {
                         <h2 className="font-semibold text-[1.4rem] capitalize">colors</h2>
                         <div className="flex gap-2 mt-4 ">
                             {colors.map((color, id) => {
+                                console.log(color)
                                 return(
-                                    <input type="radio" name="color" id="color" key={id} value={color} className={`${theme === "dark" ? "focus:border focus:border-white" : "focus:border focus:border-black"} bg-[${color}] colors-products`}/>
+                                    <input 
+                                        type="radio" 
+                                        name="color" 
+                                        id="color" 
+                                        key={id} 
+                                        value={color} 
+                                        className={`${theme === "dark" ? "focus:border focus:border-white" : "focus:border focus:border-black"} colors-products`} 
+                                        style={{ backgroundColor: colorValues[color] }}
+                                    />
                                 )
                             })}
                         </div>

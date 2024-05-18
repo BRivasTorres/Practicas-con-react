@@ -8,7 +8,7 @@ export default {
 				"text-light": "#394E6A",
 				"nav-hov-light": "#EAF0FA",
 				"nav-hov-text": "#C7C9D1",
-				"btns-bg-light" : "#057AFF",
+				"btns-bg-light": "#057AFF",
 				"bg-products-light": "#C149AD",
 
 				"bg-dark": "#181920",
