@@ -1,8 +1,7 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
 import { useParams } from "react-router-dom"
 import productsData from "../mocks/ProductsData"
-import SingleProduct from "../components/products/Products Section/SingleProduct"
-import { useContext } from "react"
+import SingleProduct from "../components/products/Products Section/SingleProduct/SingleProduct"
 import ThemeContext from "../context/ThemeContext"
 
 const Product = () => {

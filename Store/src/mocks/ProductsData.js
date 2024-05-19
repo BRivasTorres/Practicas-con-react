@@ -11,7 +11,7 @@ const productsData = [
 			image: "https://images.pexels.com/photos/943150/pexels-photo-943150.jpeg?auto=compress&cs=tinysrgb&w=1600",
 			price: "179.99",
 			shipping: false,
-			colors: ["#33FF57", "#3366FF"],
+			colors: ["green", "blue"],
 		},
 	},
 	{
