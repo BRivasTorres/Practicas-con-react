@@ -1,11 +1,11 @@
 import Header from "./header/Header"
 
-const StoreApp = () => {  
+const StoreApp = () => {          
     return (
         <div>
             <Header />
         </div>
-    )
+    );
 }
 
 export default StoreApp

@@ -8,9 +8,9 @@ import { ThemeProvider } from "./context/ThemeContext"
 import { FilterContextProvider } from "./context/FilterContext"
 import Product from "./pages/Product"
 
-function App() {
+function App() {    
     return (
-        <>
+        <div>
             <ThemeProvider>
                 <FilterContextProvider>
                     <BrowserRouter>
@@ -25,7 +25,7 @@ function App() {
                     </BrowserRouter>
                 </FilterContextProvider>
             </ThemeProvider>
-        </>
+        </div>
     );
 }
 

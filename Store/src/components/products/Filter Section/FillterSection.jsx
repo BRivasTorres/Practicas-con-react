@@ -6,19 +6,21 @@ import FilterShipping from "./FilterShipping";
 import FilterSelects from "./FilterSelects";
 import FilterBtns from "./FilterBtns";
 
+//TODO : Establecer medida maxima para paginas y limpiear estilos
+
 const FilterSection = () => {
 	
-	const {theme} = useContext(ThemeContext)
+    const {theme} = useContext(ThemeContext)
 	
-	return (
-		<div className={`${theme === "dark" ? "" : "bg-bg-light"} w-[80%] mx-auto rounded-[5px] mt-[5rem] filter-form p-[2rem]`} >
-			<InputSearchProduct />
-			<FilterSelects />
-			<FilterPrice />
-			<FilterShipping />
-			<FilterBtns />
-		</div>
-	);
+    return (
+        <div className={`${theme === "dark" ? "" : "bg-bg-light"} filter-form border `} >
+            <InputSearchProduct />
+            <FilterSelects />
+            <FilterPrice />
+            <FilterShipping />
+            <FilterBtns />
+        </div>
+    );
 };
 
 export default FilterSection;

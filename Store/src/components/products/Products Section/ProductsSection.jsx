@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import ColumnsSelector from "./ColumnsSelector";
 import FilterContext from "../../../context/FilterContext";
 import ProductsList from "./ProductsList";
@@ -6,22 +6,8 @@ import SliderProducts from "./SliderProducts";
 
 const ProductsSection = () => {
     
-    const {handleIsMultipleGrid, isMultipleGrid} = useContext(FilterContext)
-    const [currentPage, setCurrentPage] = useState(1);
+    const {handleIsMultipleGrid, isMultipleGrid, handleCurrentPage, currentPage} = useContext(FilterContext)
     
-    const handleCurrentPage = (newPage) => {
-        if(newPage === "prev") {
-            currentPage === 1
-                ? setCurrentPage(3)
-                : setCurrentPage((prevVal) => prevVal - 1);
-        } else if(newPage === "next") {
-            currentPage === 3
-                ? setCurrentPage(1)
-                : setCurrentPage((prevVal) => prevVal + 1);
-        } else {
-            setCurrentPage(newPage)
-        }
-    }
     
     return (
         <div className="w-[80%] mx-auto mt-[4rem]"  >

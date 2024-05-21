@@ -1,20 +1,10 @@
-import { useContext, useState, useEffect } from "react";
+import { useContext } from "react";
 import productsData from "../../../mocks/ProductsData"
 import CardProduct from "./CardProduct"
 import FilterContext from "../../../context/FilterContext";
 
-const ProductsList = ({currentPage}) => {           
-    const {isMultipleGrid} = useContext(FilterContext)
-    const [startIndex, setStartIndex] = useState(0);
-    const [endIndex, setEndIndex] = useState(9);
-    
-    useEffect(() => {
-        const handleIndexes = () => {
-            setStartIndex((currentPage - 1) * 10);
-            setEndIndex(currentPage * 10 - 1);
-        };
-        handleIndexes()
-    }, [currentPage]);
+const ProductsList = () => {           
+    const {isMultipleGrid, startIndex, endIndex} = useContext(FilterContext)
         
     return (
 	    <div

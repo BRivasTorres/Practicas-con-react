@@ -1,6 +1,6 @@
 const productsData = [
 	{
-		id: 1,
+		id: 0,
 		attributes: {
 			title: "avant-garde lamp",
 			company: "Modenza",
@@ -15,7 +15,7 @@ const productsData = [
 		},
 	},
 	{
-		id: 2,
+		id: 1,
 		attributes: {
 			title: "chic chair",
 			company: "Luxora",
@@ -30,7 +30,7 @@ const productsData = [
 		},
 	},
 	{
-		id: 3,
+		id: 2,
 		attributes: {
 			title: "coffee table",
 			company: "Modenza",
@@ -45,7 +45,7 @@ const productsData = [
 		},
 	},
 	{
-		id: 4,
+		id: 3,
 		attributes: {
 			title: "comfy bed",
 			company: "Homestead",
@@ -60,7 +60,7 @@ const productsData = [
 		},
 	},
 	{
-		id: 5,
+		id: 4,
 		attributes: {
 			title: "contemporary sofa",
 			company: "Comfora",
@@ -75,7 +75,7 @@ const productsData = [
 		},
 	},
 	{
-		id: 6,
+		id: 5,
 		attributes: {
 			title: "cutting-edge bed",
 			company: "Homestead",
@@ -90,7 +90,7 @@ const productsData = [
 		},
 	},
 	{
-		id: 7,
+		id: 6,
 		attributes: {
 			title: "futuristic shelves",
 			company: "Luxora",
@@ -105,7 +105,7 @@ const productsData = [
 		},
 	},
 	{
-		id: 8,
+		id: 7,
 		attributes: {
 			title: "glass table",
 			company: "Modenza",
@@ -120,7 +120,7 @@ const productsData = [
 		},
 	},
 	{
-		id: 9,
+		id: 8,
 		attributes: {
 			title: "King Bed",
 			company: "Homestead",
@@ -135,7 +135,7 @@ const productsData = [
 		},
 	},
 	{
-		id: 10,
+		id: 9,
 		attributes: {
 			title: "Lounge Chair",
 			company: "Luxora",
@@ -150,7 +150,7 @@ const productsData = [
 		},
 	},
 	{
-		id: 11,
+		id: 10,
 		attributes: {
 			title: "Minimalist Shelves",
 			company: "Artifex",
@@ -165,7 +165,7 @@ const productsData = [
 		},
 	},
 	{
-		id: 12,
+		id: 11,
 		attributes: {
 			title: "modern sofa",
 			company: "Comfora",
@@ -180,7 +180,7 @@ const productsData = [
 		},
 	},
 	{
-		id: 13,
+		id: 12,
 		attributes: {
 			title: "modern table",
 			company: "Modenza",
@@ -195,7 +195,7 @@ const productsData = [
 		},
 	},
 	{
-		id: 14,
+		id: 13,
 		attributes: {
 			title: "reclining sofa",
 			company: "Comfora",
@@ -210,7 +210,7 @@ const productsData = [
 		},
 	},
 	{
-		id: 15,
+		id: 14,
 		attributes: {
 			title: "Sectional Sofa",
 			company: "Comfora",
@@ -225,7 +225,7 @@ const productsData = [
 		},
 	},
 	{
-		id: 16,
+		id: 15,
 		attributes: {
 			title: "sleek bed",
 			company: "Homestead",
@@ -240,7 +240,7 @@ const productsData = [
 		},
 	},
 	{
-		id: 17,
+		id: 16,
 		attributes: {
 			title: "sleek chair",
 			company: "Luxora",
@@ -255,7 +255,7 @@ const productsData = [
 		},
 	},
 	{
-		id: 18,
+		id: 17,
 		attributes: {
 			title: "streamlined table",
 			company: "Modenza",
@@ -270,7 +270,7 @@ const productsData = [
 		},
 	},
 	{
-		id: 19,
+		id: 18,
 		attributes: {
 			title: "stylish bed",
 			company: "Homestead",
@@ -285,7 +285,7 @@ const productsData = [
 		},
 	},
 	{
-		id: 20,
+		id: 19,
 		attributes: {
 			title: "Toy Shelf",
 			company: "Luxora",
@@ -300,7 +300,7 @@ const productsData = [
 		},
 	},
 	{
-		id: 21,
+		id: 20,
 		attributes: {
 			title: "velvet sofa",
 			company: "Luxora",
@@ -315,7 +315,7 @@ const productsData = [
 		},
 	},
 	{
-		id: 22,
+		id: 21,
 		attributes: {
 			title: "wooden shelves",
 			company: "Artifex",

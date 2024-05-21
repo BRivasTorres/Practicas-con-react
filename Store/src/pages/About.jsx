@@ -11,9 +11,9 @@ const About = () => {
                 theme === "dark"
                     ? "bg-main-dark text-white"
                     : "bg-white text-text-light"
-            } min-h-[100dvh]`}
+            } `}
         >
-            <div className="w-[80%] mx-auto pt-[3rem]">
+            <div className="w-[60%] mx-auto pt-[3rem] min-h-[100dvh] max-w-[1400px]">
                 <h2 className="font-bold text-[3rem] lg:text-[5rem] text-center">
 					We love{" "}
                     <span
