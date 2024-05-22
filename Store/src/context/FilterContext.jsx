@@ -18,7 +18,6 @@ const FilterContextProvider = ({children}) => {
     const [startIndex, setStartIndex] = useState(0);
     const [endIndex, setEndIndex] = useState(9);
     
-    
     const handleChangePrice = (e) => {
         setFilterInputs(prevSearch => ({
             ...prevSearch,

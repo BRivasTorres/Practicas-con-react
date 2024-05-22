@@ -7,7 +7,7 @@ const MainPrincipalProducts = () => {
     const {theme} = useContext(ThemeContext)
     
     return (
-        <div className="w-[80%] mx-auto grid lg:grid-cols-[_50%_50%] items-center pt-[3rem] ">
+        <div className="grid lg:grid-cols-[_50%_50%] items-center pt-[3rem] ">
             <section className="flex flex-col mr-[3rem]">
                 <h2 className="text-[4rem] font-bold leading-[60px]">
 					We are changing the way people shop

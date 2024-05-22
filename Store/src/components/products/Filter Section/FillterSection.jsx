@@ -13,7 +13,7 @@ const FilterSection = () => {
     const {theme} = useContext(ThemeContext)
 	
     return (
-        <div className={`${theme === "dark" ? "" : "bg-bg-light"} filter-form border `} >
+        <div className={`${theme === "dark" ? "" : "bg-bg-light"} filter-form`} >
             <InputSearchProduct />
             <FilterSelects />
             <FilterPrice />

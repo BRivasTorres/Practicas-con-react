@@ -1,9 +1,9 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import ThemeContext from "../../../../context/ThemeContext";
 
-const SingleProudctColors = ({colors}) => {
-    
+const SingleProudctColors = ({colors = []}) => {
     const {theme} = useContext(ThemeContext)
+    const [selectedColor, setSelectedColor] = useState()
     const colorValues = {
         green: "#33FF57",
         blue: "#3366FF",
@@ -11,6 +11,10 @@ const SingleProudctColors = ({colors}) => {
         yellow: "#FFFF00",
     };
     
+    const handleChangeColor = (e) => {
+        console.log(e.target.value)
+    }
+        
     return (
         <div>
             <h2 className="font-semibold text-[1.4rem] capitalize">colors</h2>
@@ -25,9 +29,10 @@ const SingleProudctColors = ({colors}) => {
                             value={color}
                             className={`${
                                 theme === "dark"
-                                    ? "focus:border-[2px] focus:border-[#BF95F9]"
-                                    : "focus:border-[2px] focus:border-black"
-                            } colors-products`}
+                                    ? "focus:border-[#BF95F9]"
+                                    : "focus:border-black"
+                            } colors-products ${color === selectedColor ? "bg-red-800" : "" }`}
+                            onChange={handleChangeColor}
                             style={{
                                 backgroundColor: colorValues[color],
                             }}

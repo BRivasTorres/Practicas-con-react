@@ -14,7 +14,7 @@ const Product = () => {
         setIsLoading(true)
         const fetchData = () => {
             try {
-                setData(productsData[id])
+                setData(productsData[id].attributes)
             } catch (error) {
                 console.log(error)
             } finally {
@@ -24,16 +24,16 @@ const Product = () => {
         fetchData()
     }, [id]);
     
-    if(isLoading) {
-        return <h2>Cargando data...</h2>
+    if(!data) {
+        return <h2>No data to display</h2>
     }
     
-    if(!data) {
-        <h2>No data to display</h2>
+    if(isLoading) {
+        <h2>Cargando Data</h2>
     } else {
         return (
             <div className={`${theme === "dark" ? "bg-bg-dark text-white" : "bg-white"}`}>
-                <SingleProduct />
+                <SingleProduct data={data} />
             </div>
         );
     }

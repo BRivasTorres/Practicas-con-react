@@ -8,7 +8,7 @@ const NavDesktop = () => {
     const {theme} = useContext(ThemeContext)
     
     return (
-        <section className="grid grid-cols-[_80%_20%] items-center justify-around w-[80%] mx-auto">
+        <section className="grid grid-cols-[_80%_20%] items-center justify-around">
             <div className="hidden lg:block">
                 <section className="py-[.5rem] grid grid-cols-[_20%_80%] items-center">
                     <NavLink

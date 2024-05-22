@@ -3,7 +3,7 @@ import MainPrincipalProducts from "./MainPrincipalProducts"
 
 const Main = () => {    
     return (
-        <div className="max-w-[1400px] mx-auto">
+        <div className="max-w-[1200px] mx-auto">
             <MainPrincipalProducts />
             <MainFeaturedProducts />
         </div>
