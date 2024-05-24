@@ -3,7 +3,7 @@ import ThemeContext from "../../../../context/ThemeContext";
 
 const SingleProudctColors = ({colors = []}) => {
     const {theme} = useContext(ThemeContext)
-    const [selectedColor, setSelectedColor] = useState()
+    const [selectedColor, setSelectedColor] = useState(0)
     const colorValues = {
         green: "#33FF57",
         blue: "#3366FF",
@@ -11,15 +11,15 @@ const SingleProudctColors = ({colors = []}) => {
         yellow: "#FFFF00",
     };
     
-    const handleChangeColor = (e) => {
-        console.log(e.target.value)
+    const handleChangeColor = (id) => {
+        setSelectedColor(id)    
     }
         
     return (
         <div>
             <h2 className="font-semibold text-[1.4rem] capitalize">colors</h2>
             <div className="flex gap-2 mt-2 ">
-                {colors.map((color, id) => {
+                {colors.map((color, id) => {    
                     return (
                         <input
                             type="radio"
@@ -29,10 +29,10 @@ const SingleProudctColors = ({colors = []}) => {
                             value={color}
                             className={`${
                                 theme === "dark"
-                                    ? "focus:border-[#BF95F9]"
-                                    : "focus:border-black"
-                            } colors-products ${color === selectedColor ? "bg-red-800" : "" }`}
-                            onChange={handleChangeColor}
+                                    ? "border-[#BF95F9]"
+                                    : "border-black"
+                            } colors-products ${selectedColor === id ? "border-2" : "" } `}
+                            onChange={() => handleChangeColor(id)}
                             style={{
                                 backgroundColor: colorValues[color],
                             }}

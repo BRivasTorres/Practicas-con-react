@@ -1,10 +1,7 @@
-import { useContext } from "react";
 import productsData from "../../../mocks/ProductsData"
 import CardProduct from "./CardProduct"
-import FilterContext from "../../../context/FilterContext";
 
-const ProductsList = () => {           
-    const {isMultipleGrid, startIndex, endIndex} = useContext(FilterContext)
+const ProductsList = ({startIndex, endIndex, isMultipleGrid}) => {           
         
     return (
 	    <div

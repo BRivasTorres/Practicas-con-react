@@ -1,12 +1,12 @@
 import { useContext } from "react"
 import ThemeContext from "../../../context/ThemeContext"
 
-const SliderProducts = ({ handleCurrentPage, currentPage }) => {
+const SliderProducts = ({ handlePagination, currentPage }) => {
     const { theme } = useContext(ThemeContext);
     const btnsContent = ["prev", 1, 2, 3, "next"];
 
     const updatePage = (newPage) => {
-        handleCurrentPage(newPage)
+        handlePagination(newPage)
     };
     
     return (

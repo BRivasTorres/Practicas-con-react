@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState } from "react";
 
 const FilterContext = createContext()
 
@@ -13,10 +13,6 @@ const FilterContextProvider = ({children}) => {
             "sort-by": "a-z",
         },
     });
-    const [isMultipleGrid, setIsMultipleGrid] = useState(true);
-    const [currentPage, setCurrentPage] = useState(1);
-    const [startIndex, setStartIndex] = useState(0);
-    const [endIndex, setEndIndex] = useState(9);
     
     const handleChangePrice = (e) => {
         setFilterInputs(prevSearch => ({
@@ -63,34 +59,8 @@ const FilterContextProvider = ({children}) => {
         )
     }
     
-    const handleIsMultipleGrid = (state) => {
-        setIsMultipleGrid(state);
-    };
-    
-    const handleCurrentPage = (newPage) => {
-        if (newPage === "prev") {
-            currentPage === 1
-                ? setCurrentPage(3)
-                : setCurrentPage((prevVal) => prevVal - 1);
-        } else if (newPage === "next") {
-            currentPage === 3
-                ? setCurrentPage(1)
-                : setCurrentPage((prevVal) => prevVal + 1);
-        } else {
-            setCurrentPage(newPage);
-        }
-    };
-
-    useEffect(() => {
-        const handleIndexes = () => {
-            setStartIndex((currentPage - 1) * 10);
-            setEndIndex(currentPage * 10);
-        };
-        handleIndexes();
-    }, [currentPage]);
-    
     const handleButtonSearch = () => {
-        
+        console.log(filterInputs.inputSearch);
     }
     
     return <FilterContext.Provider value={{
@@ -100,12 +70,7 @@ const FilterContextProvider = ({children}) => {
         handleShippingFree, 
         handleSelectValues, 
         handleReset, 
-        handleIsMultipleGrid, 
-        isMultipleGrid, 
-        handleCurrentPage, 
-        currentPage,
-        startIndex, 
-        endIndex
+        handleButtonSearch
     }}>{children}</FilterContext.Provider>
 }
 

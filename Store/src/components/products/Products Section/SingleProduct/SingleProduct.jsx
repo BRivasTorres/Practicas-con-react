@@ -13,9 +13,9 @@ const SingleProduct = ({data}) => {
     return (
         <div className={`w-[80%] mx-auto pt-[5rem] min-h-[100dvh]`}>   
             <section className="flex items-center gap-[1rem]">
-                <NavLink to={"/"}>Home</NavLink>
+                <NavLink to={"/"} className="hover:underline">Home</NavLink>
                 <FontAwesomeIcon icon={faAngleRight} />
-                <NavLink to={"/products"}>Products</NavLink>
+                <NavLink to={"/products"} className="hover:underline">Products</NavLink>
             </section>
             
             <section className="mt-[1.5rem] grid grid-cols-1 gap-[3rem] lg:grid-cols-[_50%_50%]">
