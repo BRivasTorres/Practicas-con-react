@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import productsData from "../mocks/ProductsData";
 
 const FilterContext = createContext()
 
@@ -13,6 +14,7 @@ const FilterContextProvider = ({children}) => {
             "sort-by": "a-z",
         },
     });
+    const [data, setData] = useState(productsData)
     
     const handleChangePrice = (e) => {
         setFilterInputs(prevSearch => ({
@@ -60,7 +62,9 @@ const FilterContextProvider = ({children}) => {
     }
     
     const handleButtonSearch = () => {
-        console.log(filterInputs.inputSearch);
+        const serchedValue = filterInputs.inputSearch
+        const newData = productsData.filter(element => element.attributes.title.includes(serchedValue))
+        setData(newData) 
     }
     
     return <FilterContext.Provider value={{
@@ -70,7 +74,8 @@ const FilterContextProvider = ({children}) => {
         handleShippingFree, 
         handleSelectValues, 
         handleReset, 
-        handleButtonSearch
+        handleButtonSearch,
+        data
     }}>{children}</FilterContext.Provider>
 }
 
