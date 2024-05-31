@@ -3,6 +3,8 @@ import ColumnsSelector from "./ColumnsSelector";
 import ProductsList from "./ProductsList";
 import SliderProducts from "./SliderProducts";
 
+//TODO verificar actualizacion de estado en Pagination
+
 const ProductsSection = () => {
     const [isMultipleGrid, setIsmultipleGrid] = useState(true);
     const [pagination, setPagination] = useState({
@@ -15,12 +17,15 @@ const ProductsSection = () => {
         setIsmultipleGrid(state);
     };
     
-    const handlePagination = (newPage) => {
+    const handlePagination = (newPage, dataLength) => {
         setPagination((prevVal) => {
+            const totalPages = Math.ceil(dataLength / 10);
             const newCurrentPage = getNewCurrentPage(
                 newPage,
-                prevVal.currentPage
+                prevVal.currentPage,
+                totalPages
             );
+
             return {
                 ...prevVal,
                 currentPage: newCurrentPage,
@@ -29,15 +34,16 @@ const ProductsSection = () => {
             };
         });
     };
-    
-    const getNewCurrentPage = (newPage, currentPage) => {
-        if (newPage === "prev") {
-            return currentPage === 1 ? 3 : currentPage - 1;
+
+    const getNewCurrentPage = (newPage, currentPage, totalPages) => {
+        switch (newPage) {
+        case "prev":
+            return currentPage === 1 ? totalPages : currentPage - 1;
+        case "next":
+            return currentPage === totalPages ? 1 : currentPage + 1;
+        default:
+            return newPage;
         }
-        if (newPage === "next") {
-            return currentPage === 3 ? 1 : currentPage + 1;
-        }
-        return newPage;
     };
     
     return (
