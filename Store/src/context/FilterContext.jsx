@@ -14,7 +14,7 @@ const FilterContextProvider = ({children}) => {
             "sort-by": "a-z",
         },
     });
-    const [data, setData] = useState(productsData)
+    const [data, setData] = useState(productsData)    
     
     const handleChangePrice = (e) => {
         setFilterInputs(prevSearch => ({
@@ -63,8 +63,18 @@ const FilterContextProvider = ({children}) => {
     
     const handleButtonSearch = () => {
         const serchedValue = filterInputs.inputSearch
-        const newData = productsData.filter(element => element.attributes.title.includes(serchedValue))
-        setData(newData) 
+        const selectedCategory = filterInputs.selectValues["select category"]
+        
+        const filters = [
+            element => element.attributes.title.includes(serchedValue),
+            element => element.attributes.category === selectedCategory
+        ]
+        console.log(filters)
+        const combinedFilter = productsData.filter(element =>
+            filters.every(filter => filter(element))
+        )
+        
+        setData(combinedFilter)
     }
     
     return <FilterContext.Provider value={{
