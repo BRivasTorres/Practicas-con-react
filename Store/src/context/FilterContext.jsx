@@ -6,7 +6,7 @@ const FilterContext = createContext()
 const FilterContextProvider = ({children}) => {
     const [filterInputs, setFilterInputs] = useState({
         inputPrice: 1000,
-        inputSearch: "",
+        inputSearch: " ",
         isShippingFree: false,
         selectValues: {
             "select category": "all",
@@ -59,22 +59,36 @@ const FilterContextProvider = ({children}) => {
                 "sort-by": "a-z",
             }}
         )
+        setData(productsData)
     }
     
     const handleButtonSearch = () => {
-        const serchedValue = filterInputs.inputSearch
+        const searchedValue = filterInputs.inputSearch
         const selectedCategory = filterInputs.selectValues["select category"]
+        const selectedCompany = filterInputs.selectValues["select company"]
+        const selectedOrder = filterInputs.selectValues["sort-by"]
         
         const filters = [
-            element => element.attributes.title.includes(serchedValue),
-            element => element.attributes.category === selectedCategory
-        ]
-        console.log(filters)
+            (element) =>
+                searchedValue === "all" ||
+				element.attributes.title.includes(searchedValue),
+            (element) =>
+                selectedCategory === "all" ||
+				element.attributes.category === selectedCategory,
+            (element) =>
+                selectedCompany === "all" ||
+				element.attributes.company === selectedCompany,
+        ];
+        
         const combinedFilter = productsData.filter(element =>
             filters.every(filter => filter(element))
         )
         
-        setData(combinedFilter)
+        const orderedData = selectedOrder === "a-z" 
+            ? combinedFilter.sort((a, b) => a.attributes.title.localeCompare(b.attributes.title))
+            : combinedFilter.sort((a, b) => b.attributes.title.localeCompare(a.attributes.title))
+        
+        setData(orderedData)
     }
     
     return <FilterContext.Provider value={{

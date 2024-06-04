@@ -19,7 +19,7 @@ const filterData = [
 	{
         id: 3,
         title: "sort-by",
-		options : ["a-z", "z-a", "high", "low"],
+		options : ["a-z", "z-a"],
 	},
 ];
 

@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import ColumnsSelector from "./ColumnsSelector";
 import ProductsList from "./ProductsList";
 import SliderProducts from "./SliderProducts";
-
-//TODO verificar actualizacion de estado en Pagination
+import FilterContext from "../../../context/FilterContext";
+import NoProductsMatched from "./NoProductsMatched";
 
 const ProductsSection = () => {
+    const {data} = useContext(FilterContext)
+    
     const [isMultipleGrid, setIsmultipleGrid] = useState(true);
     const [pagination, setPagination] = useState({
         currentPage: 1,
@@ -55,6 +57,7 @@ const ProductsSection = () => {
             <div className="w-[100%] border-[1px] border-gray-200 mt-[1rem]">
                 {" "}
             </div>
+            {data.length === 0 ? <NoProductsMatched /> : null}
             <ProductsList 
                 currentPage={pagination.currentPage} 
                 startIndex={pagination.startIndex}
