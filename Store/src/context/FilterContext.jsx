@@ -67,6 +67,8 @@ const FilterContextProvider = ({children}) => {
         const selectedCategory = filterInputs.selectValues["select category"]
         const selectedCompany = filterInputs.selectValues["select company"]
         const selectedOrder = filterInputs.selectValues["sort-by"]
+        const selectedPrice = filterInputs.inputPrice
+        const isShippingFree = filterInputs.isShippingFree
         
         const filters = [
             (element) =>
@@ -78,13 +80,19 @@ const FilterContextProvider = ({children}) => {
             (element) =>
                 selectedCompany === "all" ||
 				element.attributes.company === selectedCompany,
+            (element) =>
+                parseInt(element.attributes.price) <=
+				parseInt(selectedPrice),
+            (element) => 
+                isShippingFree === false ||   
+                element.attributes.shipping === isShippingFree,
         ];
-        
+                
         const combinedFilter = productsData.filter(element =>
             filters.every(filter => filter(element))
-        )
+        )        
         
-        const orderedData = selectedOrder === "a-z" 
+        const orderedData = selectedOrder === "a-z"
             ? combinedFilter.sort((a, b) => a.attributes.title.localeCompare(b.attributes.title))
             : combinedFilter.sort((a, b) => b.attributes.title.localeCompare(a.attributes.title))
         
