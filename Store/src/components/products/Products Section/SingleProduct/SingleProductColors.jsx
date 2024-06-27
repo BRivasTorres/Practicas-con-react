@@ -1,9 +1,9 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import ThemeContext from "../../../../context/ThemeContext";
 
-const SingleProudctColors = ({colors = []}) => {
+const SingleProductColors = ({colors = [], handleSelectedColor, selectedColor}) => {
     const {theme} = useContext(ThemeContext)
-    const [selectedColor, setSelectedColor] = useState(0)
+    
     const colorValues = {
         green: "#33FF57",
         blue: "#3366FF",
@@ -11,8 +11,8 @@ const SingleProudctColors = ({colors = []}) => {
         yellow: "#FFFF00",
     };
     
-    const handleChangeColor = (id) => {
-        setSelectedColor(id)    
+    const handleChangeColor = (color) => {
+        handleSelectedColor(color)    
     }
         
     return (
@@ -31,7 +31,7 @@ const SingleProudctColors = ({colors = []}) => {
                                 theme === "dark"
                                     ? "border-[#BF95F9]"
                                     : "border-black"
-                            } colors-products ${selectedColor === id ? "border-2" : "" } `}
+                            } colors-products ${selectedColor === id ? "border-2" : "" }`}
                             onChange={() => handleChangeColor(id)}
                             style={{
                                 backgroundColor: colorValues[color],
@@ -44,4 +44,4 @@ const SingleProudctColors = ({colors = []}) => {
     );
 }
 
-export default SingleProudctColors
+export default SingleProductColors

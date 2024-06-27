@@ -14,7 +14,9 @@ const FilterContextProvider = ({children}) => {
             "sort-by": "a-z",
         },
     });
-    const [data, setData] = useState(productsData)    
+    const [data, setData] = useState(productsData) 
+    const [cartData, setCartData] = useState([]) 
+    const [dataMap, setDataMap] = useState(new Map());  
     
     const handleChangePrice = (e) => {
         setFilterInputs(prevSearch => ({
@@ -99,15 +101,23 @@ const FilterContextProvider = ({children}) => {
         setData(orderedData)
     }
     
+    const handleCartData = (id, newItem) => {
+        setCartData(prevData => [...prevData, {id, ...newItem}])
+    }
+    
     return <FilterContext.Provider value={{
         filterInputs, 
         handleChangePrice, 
         handleInputSearch, 
         handleShippingFree, 
-        handleSelectValues, 
+        handleSelectValues,
         handleReset, 
         handleButtonSearch,
-        data
+        data,
+        handleCartData,
+        cartData,
+        dataMap,
+        setDataMap
     }}>{children}</FilterContext.Provider>
 }
 
