@@ -1,40 +1,22 @@
 import { useContext, useState } from 'react';
 import ThemeContext from '../../../../context/ThemeContext';
-import FilterContext from '../../../../context/FilterContext';
+import useLocalStorage from '../../../../hooks/useLocalStorage';
 
-const SingleProductBuy = ({ price, title, color, amount, company }) => {
+const SingleProductBuy = ({ price, title, color, amount, company, image }) => {
     const { theme } = useContext(ThemeContext);
-    const { handleCartData, dataMap, setDataMap } = useContext(FilterContext);
-    const [id, setId] = useState(0)
-        
-    const isInCart = (newItem) => {
-        const key = newItem.title
-        
-        return dataMap.has(key)
-    };
+    const {getItem, hasItem, removeItem, setItem} = useLocalStorage("cart products")
     
-    //TODO update item if already exists in cartData
-
-    const handleAddToBag = () => {
+    const handleAddToBag = () => {    
         const newItem = {
             price: price,
             title: title,
             company: company,
             color: color,
             amount: amount,
+            image: image
         };
         
-        if(isInCart(newItem)) {
-            console.log("alredy in cart")
-        } else {
-            setId(prevVal => prevVal + 1)
-            setDataMap(prevMap => {
-                const updateMap = new Map(prevMap)
-                updateMap.set(newItem.title, newItem)
-                return updateMap
-            })
-            handleCartData(id, newItem)
-        }
+        setItem(title, newItem)
     };
 
     return (

@@ -1,11 +1,18 @@
 import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import ThemeContext from '../../context/ThemeContext';
+import useLocalStorage from '../../hooks/useLocalStorage';
 
 const Chart = () => {
     const {theme} = useContext(ThemeContext)
+    const { map, cartSize } = useLocalStorage("cart products");
+    const [newCartSize, setNewCartSize] = useState(map.size)
+    
+    useEffect(() => {
+        setNewCartSize(map.size)
+    }, [cartSize]);
     
     return (
         <div>
@@ -25,7 +32,7 @@ const Chart = () => {
                             : "bg-[#057AFF] text-white"
                     }  text-[1rem] px-[.5rem] rounded-[50%] absolute top-[5px] right-[3px]`}
                 >
-                0
+                    {newCartSize}
                 </span>
             </NavLink>
         </div>
