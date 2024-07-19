@@ -15,7 +15,7 @@ const NavMobile = () => {
     };
     
     return (
-        <section className="w-[80%] mx-auto lg:hidden">
+        <section className="w-[80%] lg:hidden">
             <button onClick={() => toggleNav()}>
                 <FontAwesomeIcon
                     icon={faBars}
@@ -31,7 +31,7 @@ const NavMobile = () => {
                             theme === "dark"
                                 ? "bg-bg-dark"
                                 : "bg-bg-light"
-                        } absolute left-[10%] top-[75px] w-[180px] rounded-[10px]`}
+                        } absolute top-[75px] w-[180px] rounded-[10px]`}
                     >
                         <ul className="flex flex-col items-start gap-y-[1rem] text-[1rem] p-[1rem]">
                             {navigationPages.map((navItem) => {

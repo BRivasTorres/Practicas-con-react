@@ -1,24 +1,17 @@
 import { useContext } from "react";
 import ThemeContext from "../../../../context/ThemeContext";
 
-const SingleProductColors = ({colors = [], handleSelectedColor, selectedColor}) => {
+const SingleProductColors = ({colors = [], handleSelectedColor, selectedColor = colors[0]}) => {
     const {theme} = useContext(ThemeContext)
-    
-    const colorValues = {
-        green: "#33FF57",
-        blue: "#3366FF",
-        orange: "#FF5733",
-        yellow: "#FFFF00",
-    };
-    
+    console.log(selectedColor)
     const handleChangeColor = (color) => {
-        handleSelectedColor(color)    
+        handleSelectedColor(color)   
     }
-        
+    //TODO corregir renderizado de colores
     return (
         <div>
             <h2 className="font-semibold text-[1.4rem] capitalize">colors</h2>
-            <div className="flex gap-2 mt-2 ">
+            <div className="flex gap-2 mt-2">
                 {colors.map((color) => {    
                     return (
                         <input
@@ -31,10 +24,14 @@ const SingleProductColors = ({colors = [], handleSelectedColor, selectedColor}) 
                                 theme === "dark"
                                     ? "border-[#BF95F9]"
                                     : "border-black"
-                            } colors-products ${selectedColor === color ? "border-2" : "" }`}
+                            } colors-products ${
+                                selectedColor === color
+                                    ? "border-2"
+                                    : ""
+                            }`}
                             onChange={() => handleChangeColor(color)}
                             style={{
-                                backgroundColor: colorValues[color],
+                                backgroundColor: color,
                             }}
                         />
                     );

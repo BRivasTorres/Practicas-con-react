@@ -7,7 +7,7 @@ const Products = () => {
     const {theme} = useContext(ThemeContext)
   
     return (
-        <div className={`${theme === "dark" ? "bg-main-dark text-white" : "text-main-dark bg-white"} overflow-hidden`} >
+        <div className={`${theme === "dark" ? "bg-main-dark text-white" : "text-main-dark bg-white"} overflow-hidden px-[2rem] `} >
             <FilterSection />
             <ProductsSection />
         </div>

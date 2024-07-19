@@ -11,7 +11,7 @@ import { useState } from "react"
 
 const SingleProduct = ({data}) => {
     const {title, company, description, image, price, colors} = data
-    const [selectedColor, setSelectedColor] = useState("");
+    const [selectedColor, setSelectedColor] = useState();
     const [selectedAmount, setSelectedAmount] = useState(1)
     
     const handleSelectedColor = (color) => {
