@@ -6,13 +6,19 @@ import SingleProductColors from "./SingleProductColors"
 import SingleProductAmount from "./SingleProductAmount"
 import SingleProductImg from "./SingleProductImg"
 import SingleProductBuy from "./SingleProductBuy"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 
 const SingleProduct = ({data}) => {
-    const {title, company, description, image, price, colors} = data
+    const {title, company, description, image, price, colors, shipping} = data
     const [selectedColor, setSelectedColor] = useState();
     const [selectedAmount, setSelectedAmount] = useState(1)
+    
+    useEffect(() => {
+        if (colors && colors.length > 0) {
+            setSelectedColor(colors[0]);
+        }
+    }, [colors]);
     
     const handleSelectedColor = (color) => {
         setSelectedColor(color)
@@ -58,6 +64,7 @@ const SingleProduct = ({data}) => {
                         color={selectedColor}
                         amount={selectedAmount}
                         image={image}
+                        shipping={shipping}
                     />
                 </div>
             </section>

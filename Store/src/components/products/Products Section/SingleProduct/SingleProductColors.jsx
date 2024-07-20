@@ -3,11 +3,11 @@ import ThemeContext from "../../../../context/ThemeContext";
 
 const SingleProductColors = ({colors = [], handleSelectedColor, selectedColor = colors[0]}) => {
     const {theme} = useContext(ThemeContext)
-    console.log(selectedColor)
+    
     const handleChangeColor = (color) => {
         handleSelectedColor(color)   
     }
-    //TODO corregir renderizado de colores
+    
     return (
         <div>
             <h2 className="font-semibold text-[1.4rem] capitalize">colors</h2>

@@ -2,7 +2,7 @@ import { useContext, useState } from 'react';
 import ThemeContext from '../../../../context/ThemeContext';
 import useLocalStorage from '../../../../hooks/useLocalStorage';
 
-const SingleProductBuy = ({ price, title, color, amount, company, image }) => {
+const SingleProductBuy = ({ price, title, color, amount, company, image, shipping }) => {
     const { theme } = useContext(ThemeContext);
     const {getItem, hasItem, removeItem, setItem} = useLocalStorage("cart products")
     
@@ -13,7 +13,8 @@ const SingleProductBuy = ({ price, title, color, amount, company, image }) => {
             company: company,
             color: color,
             amount: amount,
-            image: image
+            image: image,
+            shipping: shipping
         };
         
         setItem(title, newItem)
