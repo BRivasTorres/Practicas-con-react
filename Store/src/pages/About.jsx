@@ -3,15 +3,11 @@ import ThemeContext from "../context/ThemeContext"
 
 const About = () => {
   
-    const {theme} = useContext(ThemeContext)
+    const {themePalette, theme} = useContext(ThemeContext)
   
     return (
         <div
-            className={`${
-                theme === "dark"
-                    ? "bg-main-dark text-white"
-                    : "bg-white text-text-light"
-            } `}
+            className={`${themePalette}`}
         >
             <div className="w-[80%] mx-auto pt-[3rem] min-h-[100dvh] max-w-[1200px]">
                 <h2 className="font-bold text-[3rem] lg:text-[5rem] text-center">

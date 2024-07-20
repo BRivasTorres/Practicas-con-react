@@ -4,6 +4,7 @@ const ThemeContext = createContext()
 
 const ThemeProvider = ({children}) => {
     const [theme, setTheme] = useState()
+    const [themePalette, setThemePalette] = useState()
     
     useEffect(() => {
         const darkModeMediaQuery = window.matchMedia(
@@ -20,9 +21,17 @@ const ThemeProvider = ({children}) => {
         };
     }, []);
     
+    useEffect(() => {
+        const isDarkTheme = theme === "dark";
+        const bgClass = isDarkTheme
+            ? "bg-main-dark text-white"
+            : "bg-white text-black";
+        setThemePalette(bgClass)
+    }, [theme])
+    
     const handleChangeTheme = (theme) => setTheme(theme)
     
-    const value = {theme, handleChangeTheme}
+    const value = {theme, handleChangeTheme, themePalette}
     return <ThemeContext.Provider value={value} >{children}</ThemeContext.Provider>
 }
 

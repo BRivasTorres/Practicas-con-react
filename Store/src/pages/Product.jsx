@@ -5,7 +5,7 @@ import SingleProduct from "../components/products/Products Section/SingleProduct
 import ThemeContext from "../context/ThemeContext"
 
 const Product = () => {
-    const {theme} = useContext(ThemeContext)
+    const {themePalette} = useContext(ThemeContext)
     const {id} = useParams()
     const [isLoading, setIsLoading] = useState(false)
     const [data, setData]  = useState([])
@@ -32,7 +32,7 @@ const Product = () => {
         <h2>Cargando Data</h2>
     } else {
         return (
-            <div className={`${theme === "dark" ? "bg-bg-dark text-white" : "bg-white"}`}>
+            <div className={`${themePalette}`}>
                 <SingleProduct data={data} />
             </div>
         );
