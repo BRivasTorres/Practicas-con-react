@@ -7,11 +7,11 @@ const Products = () => {
     const {themePalette} = useContext(ThemeContext)
   
     return (
-        <div className={`${themePalette} overflow-hidden px-[2rem] `} >
-            <FilterSection />
-            <ProductsSection />
-        </div>
-    )
+		<div className={`${themePalette} overflow-hidden px-[2rem] `}>
+			<FilterSection />
+			<ProductsSection />
+		</div>
+	);
 }
 
 export default Products
