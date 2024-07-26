@@ -1,113 +1,138 @@
-import { createContext, useState } from "react";
+import { createContext, useReducer, useState } from "react";
 import productsData from "../mocks/ProductsData";
 
 const FilterContext = createContext()
 
-const FilterContextProvider = ({children}) => {
-    const [filterInputs, setFilterInputs] = useState({
+const initialState = {
+    filterInputs: {
         inputPrice: 1000,
-        inputSearch: " ",
+        inputSearch: "",
         isShippingFree: false,
         selectValues: {
-            "select category": "all",
-            "select company": "all",
-            "sort-by": "a-z",
-        },
-    });
-    const [data, setData] = useState(productsData) 
-    
+            "select category" : "all",
+            "select company" : "all",
+            "sort-by" : "a-z"
+        }
+    },
+    data: productsData
+}
+
+const filterReducer = (state, action) => {
+    switch (action.type) {
+    case "SET_PRICE": 
+        return{
+            ...state,
+            filterInputs: {
+                ...state.filterInputs,
+                inputPrice: action.playload
+            }
+        }
+    case "SET_SEARCH": 
+        return{
+            ...state,
+            filterInputs: {
+                ...state.filterInputs,
+                inputSearch: action.playload
+            }
+        }
+    case "TOGGLE_SHIPPING": 
+        return{
+            ...state,
+            filterInputs: {
+                ...state.filterInputs,
+                isShippingFree: !state.filterInputs.isShippingFree
+            }
+        }
+    case "SET_SELECT_VALUES": 
+        return{
+            ...state,
+            filterInputs: {
+                ...state.filterInputs,
+                selectValues: {
+                    ...state.filterInputs.selectValues,
+                    [action.playload.name] : action.playload.value
+                }
+            }
+        }
+    case "RESET_FILTERS": 
+        return initialState
+    case "SET_DATA": 
+        return {
+            ...state,
+            data: action.playload
+        }
+            
+    default: return state;
+    }
+}
+
+const FilterContextProvider = ({children}) => {
+    const [state, dispatch] = useReducer(filterReducer, initialState)
     const handleChangePrice = (e) => {
-        setFilterInputs(prevSearch => ({
-            ...prevSearch,
-            inputPrice: e.target.value 
-        }))
+        dispatch({ type : "SET_PRICE", playload: e.target.value})
     }
     
     const handleInputSearch = (e) => {
-        setFilterInputs(prevVal => ({
-            ...prevVal,
-            inputSearch: e.target.value
-        }))
+        console.log(e.target.value)
+        dispatch({ type : "SET_SEARCH", playload: e.target.value})
     }
     
     const handleShippingFree = () => {
-        setFilterInputs(prevState => ({
-            ...prevState,
-            isShippingFree: !filterInputs.isShippingFree
-        }))
+        dispatch({type: "TOGGLE_SHIPPING"})
     }
     
     const handleSelectValues = (e) => {
-        const {name, value} = e.target
-        setFilterInputs(prevVal => ({
-            ...prevVal,
-            selectValues : {
-                ...filterInputs.selectValues,
-                [name] : value
-            }
-        }))
+        dispatch({type: "SET_SELECT_VALUES", playload: {name : e.target.name, value : e.target.value}})
     }
     
     const handleReset = () => {
-        setFilterInputs({
-            inputPrice: 1000,
-            inputSearch: "",
-            isShippingFree: false,
-            selectValues: {
-                "select category": "all",
-                "select company": "all",
-                "sort-by": "a-z",
-            }}
-        )
-        setData(productsData)
+        dispatch({type: "RESET_FILTERS"})
     }
     
     const handleButtonSearch = () => {
-        const searchedValue = filterInputs.inputSearch
-        const selectedCategory = filterInputs.selectValues["select category"]
-        const selectedCompany = filterInputs.selectValues["select company"]
-        const selectedOrder = filterInputs.selectValues["sort-by"]
-        const selectedPrice = filterInputs.inputPrice
-        const isShippingFree = filterInputs.isShippingFree
+        const { inputSearch, selectValues, inputPrice, isShippingFree } =
+			state.filterInputs;    
         
         const filters = [
             (element) =>
-                searchedValue === "all" ||
-				element.attributes.title.includes(searchedValue),
+                inputSearch === "all" ||
+				element.attributes.title.includes(inputSearch),
             (element) =>
-                selectedCategory === "all" ||
-				element.attributes.category === selectedCategory,
+                selectValues["select category"] === "all" ||
+				element.attributes.category === selectValues["select category"],
             (element) =>
-                selectedCompany === "all" ||
-				element.attributes.company === selectedCompany,
+                selectValues["select company"] === "all" ||
+				element.attributes.company === selectValues["select company"],
             (element) =>
-                parseInt(element.attributes.price) <=
-				parseInt(selectedPrice),
-            (element) => 
-                isShippingFree === false ||   
-                element.attributes.shipping === isShippingFree,
+                parseInt(element.attributes.price) <= parseInt(inputPrice),
+            (element) =>
+                !isShippingFree ||
+				element.attributes.isShippingFree === isShippingFree,
         ];
                 
         const combinedFilter = productsData.filter(element =>
             filters.every(filter => filter(element))
         )        
         
-        const orderedData = selectedOrder === "a-z"
+        const orderedData = selectValues["sort-by"] === "a-z"
             ? combinedFilter.sort((a, b) => a.attributes.title.localeCompare(b.attributes.title))
             : combinedFilter.sort((a, b) => b.attributes.title.localeCompare(a.attributes.title))
         
-        setData(orderedData)
+        // console.log("data changed", initialState.data)
+        dispatch({type: "SET_DATA", playload: orderedData})    
+            
+        // setData(orderedData)
     }
     
     return <FilterContext.Provider value={{
-        filterInputs, 
+        filterInputs: state.filterInputs, 
         handleChangePrice, 
         handleInputSearch, 
         handleShippingFree, 
         handleSelectValues,
         handleReset, 
         handleButtonSearch,
-        data
+        data: state.data
     }}>{children}</FilterContext.Provider>
 }
 

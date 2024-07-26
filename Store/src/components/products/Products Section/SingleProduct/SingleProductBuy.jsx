@@ -1,10 +1,10 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import ThemeContext from '../../../../context/ThemeContext';
 import useLocalStorage from '../../../../hooks/useLocalStorage';
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const SingleProductBuy = ({ price, title, color, amount, company, image, shipping }) => {
+const SingleProductBuy = ({ price, title, color, amount, company, image, isShippingFree, handleSelectedAmount }) => {
     const { theme } = useContext(ThemeContext);
     const {getItem, hasItem, setItem} = useLocalStorage("cart products")
     
@@ -16,7 +16,7 @@ const SingleProductBuy = ({ price, title, color, amount, company, image, shippin
             color: color,
             amount: amount,
             image: image,
-            shipping: shipping
+            isShippingFree: isShippingFree,
         };
         
         setItem(title, newItem)

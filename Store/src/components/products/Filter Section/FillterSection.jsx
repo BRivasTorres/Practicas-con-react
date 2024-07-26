@@ -6,8 +6,6 @@ import FilterShipping from "./FilterShipping";
 import FilterSelects from "./FilterSelects";
 import FilterBtns from "./FilterBtns";
 
-//TODO : Establecer medida maxima para paginas y limpiear estilos
-
 const FilterSection = () => {
 	
     const {theme} = useContext(ThemeContext)

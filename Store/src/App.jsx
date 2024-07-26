@@ -12,19 +12,19 @@ import { ToastContainer } from "react-toastify";
 
 function App() {    
     return (
-		<div>
-			<ThemeProvider>
-				<FilterContextProvider>
-					<BrowserRouter>
-						<StoreApp />
-						<Routes>
-							<Route path="/" element={<Home />} />
-							<Route path="/about" element={<About />} />
-							<Route path="/products" element={<Products />} />
-							<Route path="/cart" element={<Cart />} />
-							<Route path="/products/:id" element={<Product />} />
-						</Routes>
-						<ToastContainer
+        <div>
+            <ThemeProvider>
+                <FilterContextProvider>
+                    <BrowserRouter>
+                        <StoreApp />
+                        <Routes>
+                            <Route path="/" element={<Home />} />
+                            <Route path="/about" element={<About />} />
+                            <Route path="/products" element={<Products />} />
+                            <Route path="/cart" element={<Cart />} />
+                            <Route path="/products/:id" element={<Product />} />
+                        </Routes>
+                        <ToastContainer
                             position="top-center"
                             autoClose={1000}
                             hideProgressBar={false}
@@ -36,11 +36,11 @@ function App() {
                             pauseOnHover
                             theme="light"
                         />
-					</BrowserRouter>
-				</FilterContextProvider>
-			</ThemeProvider>
-		</div>
-	);
+                    </BrowserRouter>
+                </FilterContextProvider>
+            </ThemeProvider>
+        </div>
+    );
 }
 
 export default App

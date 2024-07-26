@@ -1,10 +1,14 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import CardProduct from "./CardProduct"
 import FilterContext from "../../../context/FilterContext";
 
 const ProductsList = ({startIndex, endIndex, isMultipleGrid}) => {           
         
     const {data} = useContext(FilterContext)
+    
+    // useEffect(() => {
+    //     console.log("data changed")
+    // }, [data]);
     
     return (
 	    <div

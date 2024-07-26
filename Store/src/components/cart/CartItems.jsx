@@ -1,10 +1,11 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import ThemeContext from "../../context/ThemeContext";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const CartItems = ({cartArray, removeItem}) => {    
     const { theme } = useContext(ThemeContext);
+    const values = Array.from({ length: 20 }, (_, i) => i + 1);
     
     const notify = () => {
         toast.error("Item deleted from cart", {
@@ -23,6 +24,10 @@ const CartItems = ({cartArray, removeItem}) => {
         notify()
         removeItem(key)
     };
+    
+    const updateAmountChange = (e) => {
+        handleSelectedAmount(e.target.value)
+    }
     
     return (
         <div className="flex flex-col gap-3">
@@ -56,9 +61,29 @@ const CartItems = ({cartArray, removeItem}) => {
                                 </h5>
                             </div>
 
-                            <div>
-                                <h3 className="capitalize">amount</h3>
-                                <h1>select</h1>
+                            <div className="flex flex-col items-start gap-y-3 ">
+                                <label htmlFor="amount" className="capitalize">
+									amount
+                                </label>
+                                <select
+                                    defaultValue={item.amount}
+                                    name="amount"
+                                    id="amount"
+                                    className={`${
+                                        theme === "dark"
+                                            ? "border border-[#BF95F9] outline-[#BF95F9] bg-main-dark text-white "
+                                            : "border border-[#463AA1] outline-[#463AA1]"
+                                    } px-4 py-2 rounded-lg `}
+                                    onChange={updateAmountChange}
+                                >
+                                    {values.map((val, id) => {
+                                        return (
+                                            <option value={val} key={id}>
+                                                {val}
+                                            </option>
+                                        );
+                                    })}
+                                </select>
                                 <button
                                     className={
                                         theme === "dark"
@@ -77,7 +102,7 @@ const CartItems = ({cartArray, removeItem}) => {
                         </div>
                         <div className="w-[90%] ">
                             {idx < cartArray.length - 1 && (
-                                <div className="h-[1px] bg-[#E2E8F4] my-[2.5rem] "></div>
+                                <div className="h-[1px] bg-[#E2E8F4] my-[2.5rem]"></div>
                             )}
                         </div>
                     </section>
