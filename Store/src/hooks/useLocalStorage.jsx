@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react"
 
+//TODO el problema es que el contexto global "map" no es seguido de manera correca en el componente cart y order summary, es decir este contexto es actualizado, pero esta actualizacion no es tomada por los demas componentes
+
 const useLocalStorage = (key) => {
     const [map, setMap] = useState(new Map())
     const [cartSize, setCartSize] = useState(map.size)
@@ -29,13 +31,20 @@ const useLocalStorage = (key) => {
         setCartSize(map.size)
     }
     
-    const hasItem = (k) => {
-        return map.has(k)
-    }
-    
-    const getItem = (k) => {
-        return map.get(k)
-    }
+    const updateItem = (item, newVal) => {
+        setMap((prevMap) => {
+            const newMap = new Map(prevMap)
+            const itemToUpdate = newMap.get(item)
+            itemToUpdate.amount = newVal
+            
+                        
+            window.localStorage.setItem(
+				key,
+				JSON.stringify(Array.from(newMap.entries()))
+			);
+            return newMap
+        })
+	}
     
     const removeItem = (k) => {
         setMap((prevMap) => {
@@ -46,7 +55,7 @@ const useLocalStorage = (key) => {
         })
     }
     
-    return {setItem, hasItem, getItem, removeItem, map, cartSize }
+    return {setItem, updateItem, removeItem, map, cartSize }
 }
 
 export default useLocalStorage

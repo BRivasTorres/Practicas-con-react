@@ -1,4 +1,4 @@
-import { createContext, useReducer, useState } from "react";
+import { createContext, useReducer } from "react";
 import productsData from "../mocks/ProductsData";
 
 const FilterContext = createContext()
@@ -73,7 +73,6 @@ const FilterContextProvider = ({children}) => {
     }
     
     const handleInputSearch = (e) => {
-        console.log(e.target.value)
         dispatch({ type : "SET_SEARCH", playload: e.target.value})
     }
     
@@ -118,10 +117,7 @@ const FilterContextProvider = ({children}) => {
             ? combinedFilter.sort((a, b) => a.attributes.title.localeCompare(b.attributes.title))
             : combinedFilter.sort((a, b) => b.attributes.title.localeCompare(a.attributes.title))
         
-        // console.log("data changed", initialState.data)
         dispatch({type: "SET_DATA", playload: orderedData})    
-            
-        // setData(orderedData)
     }
     
     return <FilterContext.Provider value={{

@@ -6,12 +6,13 @@ import SingleProductColors from "./SingleProductColors"
 import SingleProductAmount from "./SingleProductAmount"
 import SingleProductImg from "./SingleProductImg"
 import SingleProductBuy from "./SingleProductBuy"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
+import CartContext from "../../../../context/CartContext"
 
 const SingleProduct = ({data}) => {
     const {title, company, description, image, price, colors, isShippingFree} = data
     const [selectedColor, setSelectedColor] = useState();
-    const [selectedAmount, setSelectedAmount] = useState(1)
+    const {handleSelectedAmount, selectedAmount} = useContext(CartContext)
     
     useEffect(() => {
         if (colors && colors.length > 0) {
@@ -21,10 +22,6 @@ const SingleProduct = ({data}) => {
     
     const handleSelectedColor = (color) => {
         setSelectedColor(color)
-    }
-    
-    const handleSelectedAmount = (amount) => {
-        setSelectedAmount(amount)
     }
     
     return (
@@ -64,7 +61,6 @@ const SingleProduct = ({data}) => {
                         amount={selectedAmount}
                         image={image}
                         isShippingFree={isShippingFree}
-                        handleSelectedAmount={handleSelectedAmount}
                     />
                 </div>
             </section>

@@ -1,11 +1,15 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import ThemeContext from "../../context/ThemeContext";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import CartContext from "../../context/CartContext";
+import useLocalStorage from "../../hooks/useLocalStorage";
 
 const CartItems = ({cartArray, removeItem}) => {    
     const { theme } = useContext(ThemeContext);
     const values = Array.from({ length: 20 }, (_, i) => i + 1);
+    const {handleSelectedAmount} = useContext(CartContext)
+    const {updateItem} = useLocalStorage("cart products")
     
     const notify = () => {
         toast.error("Item deleted from cart", {
@@ -25,7 +29,8 @@ const CartItems = ({cartArray, removeItem}) => {
         removeItem(key)
     };
     
-    const updateAmountChange = (e) => {
+    const updateAmountChange = (e, item) => {
+        updateItem(item, e.target.value)
         handleSelectedAmount(e.target.value)
     }
     
@@ -74,7 +79,7 @@ const CartItems = ({cartArray, removeItem}) => {
                                             ? "border border-[#BF95F9] outline-[#BF95F9] bg-main-dark text-white "
                                             : "border border-[#463AA1] outline-[#463AA1]"
                                     } px-4 py-2 rounded-lg `}
-                                    onChange={updateAmountChange}
+                                    onChange={(e) => updateAmountChange(e, item.title)}
                                 >
                                     {values.map((val, id) => {
                                         return (

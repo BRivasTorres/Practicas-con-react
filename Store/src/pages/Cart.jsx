@@ -2,7 +2,7 @@ import CartItems from "../components/cart/CartItems";
 import OrderSummary from "../components/cart/OrderSummary";
 import ThemeContext from "../context/ThemeContext";
 import useLocalStorage from "../hooks/useLocalStorage";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 
 const Cart = () => {    
     const {map, removeItem} = useLocalStorage("cart products")
